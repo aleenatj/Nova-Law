@@ -1,0 +1,103 @@
+name: Database Migration (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      migration-lambda-function-name:
+        required: true
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+    outputs:
+      migration-success:
+        description: "Result of migration"
+        value: ${{ jobs.database-migrate.outputs.success }}
+
+jobs:
+  database-migrate:
+    runs-on: ubuntu-latest
+    name: Database Migration via Lambda
+    environment: ${{ inputs.environment }}
+    outputs:
+      success: ${{ steps.migration-status.outputs.success }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Test database connection via Lambda
+      run: |
+        echo "🔍 Testing database connection via Lambda..."
+        response=$(aws lambda invoke \
+          --function-name ${{ inputs.migration-lambda-function-name }} \
+          --payload '{"action": "verify"}' \
+          --cli-binary-format raw-in-base64-out \
+          response.json)
+
+        echo "Lambda response:"
+        cat response.json
+
+        if python3 scripts/parse_lambda_response.py response.json; then
+          echo "✅ Database connection verified via Lambda"
+        else
+          echo "❌ Database connection failed via Lambda"
+          exit 1
+        fi
+
+    - name: Run database migrations via Lambda
+      run: |
+        echo "🔄 Running database migrations via Lambda..."
+        response=$(aws lambda invoke \
+          --function-name ${{ inputs.migration-lambda-function-name }} \
+          --payload '{"action": "migrate"}' \
+          --cli-binary-format raw-in-base64-out \
+          migration-response.json)
+
+        echo "Migration Lambda response:"
+        cat migration-response.json
+
+        if python3 scripts/parse_lambda_response.py migration-response.json; then
+          echo "✅ Database migrations completed successfully via Lambda"
+        else
+          echo "❌ Database migrations failed via Lambda"
+          exit 1
+        fi
+
+    - name: Verify migration completion
+      run: |
+        echo "🔍 Verifying migration completion..."
+        response=$(aws lambda invoke \
+          --function-name ${{ inputs.migration-lambda-function-name }} \
+          --payload '{"action": "verify"}' \
+          --cli-binary-format raw-in-base64-out \
+          final-verify.json)
+
+        echo "Final verification response:"
+        cat final-verify.json
+
+        if python3 scripts/parse_lambda_response.py final-verify.json; then
+          echo "✅ Migration verification successful"
+        else
+          echo "❌ Migration verification failed"
+          exit 1
+        fi
+
+    - name: Set Migration Status
+      id: migration-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT

@@ -1,0 +1,12 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "first_name": "{first_name}",
+        "case_number": "{case_number}",
+        "kyc_id": "{kyc_id}",
+        "action_buttons":{
+            "view_alignment_check_details": true
+        }
+    }
+}

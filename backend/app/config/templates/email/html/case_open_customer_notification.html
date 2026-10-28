@@ -1,0 +1,18 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Case Opened Successfully</h2>
+<p>Hi {{ customer_name }}</p>
+
+<p>Thank you for reaching out to Nova. We're pleased to confirm that your case has been successfully opened.</p>
+
+<p>Your case <b>{{ case_number }}</b> has been registered as a <b>{{ case_type }}</b>. We have classified this as <b>{{ priority }}</b> priority and opened it on <b>{{ start_date }}</b>.</p>
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+<p>Thank you for choosing Nova. We're committed to providing you with exceptional legal assistance and will keep you informed throughout the entire process.</p>
+
+{% endblock %}

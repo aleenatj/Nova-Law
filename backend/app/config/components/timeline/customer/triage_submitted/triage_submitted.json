@@ -1,0 +1,11 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "start_time": "{start_time}",
+        "end_time": "{end_time}",
+        "triage_id": "{triage_id}",
+        "action_buttons": "{action_buttons}"
+    }
+}

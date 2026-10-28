@@ -1,0 +1,1 @@
+export { default as LawFirmSearch } from "./v1/LawFirmSearch";

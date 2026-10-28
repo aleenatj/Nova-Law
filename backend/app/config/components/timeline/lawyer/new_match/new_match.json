@@ -1,0 +1,36 @@
+{
+    "1": {
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",      
+      "case_number": "{case_number}",
+      "case_priority": "{case_priority}",
+      "case_priority_data": "{case_priority_data}",
+      "resolve_id": "{resolve_id}",
+      "triage_id": "{triage_id}",
+      "resolve_title": "{resolve_title}",
+      "current_court_proceedings": "{current_court_proceedings}",
+      "income_before_tax": "{income_before_tax}",
+      "asset_value": "{asset_value}",
+      "features_relevant_to_children": "{features_relevant_to_children}",
+      "features_relevant_to_relationship": "{features_relevant_to_relationship}",
+      "relationship_activities": "{relationship_activities}",
+      "customer_name": "{customer_name}",
+      "customer_first_name": "{customer_first_name}",
+      "partner_name": "{partner_name}",
+      "partner_first_name": "{partner_first_name}",
+      "email_address": "{email_address}",
+      "preferred_consultation_method": "{preferred_consultation_method}",
+      "additional_support": "{additional_support}",
+      "gender": "{gender}",
+      "hourly_rate": "{hourly_rate}",
+      "strategic_advice_consultation": "{strategic_advice_consultation}",
+      "case_summary": "{case_summary}",
+      "case_ai_summary": "{case_ai_summary}",
+      "kyc_id": "{kyc_id}",
+      "matter_type_kyc": "{matter_type_kyc}",
+      "relationship_type": "{relationship_type}",
+      "match_status":"{match_status}",
+      "action_buttons": "{action_buttons}"
+    }
+}
+  

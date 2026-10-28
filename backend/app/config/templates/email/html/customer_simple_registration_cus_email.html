@@ -1,0 +1,16 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Sign in</h2>
+<p>Hi {{ username }}</p>
+<p>You can sign in to your Nova account using the secure link below – no password required.</p>
+<p>For security reasons, this link will expire after {{ expiry_formatted }}. If it expires, you can request a new sign-in link from the login page.</p>
+<p>If you didn’t request this email, you can safely ignore it.</p>
+<p class="text-center">
+  <a href="{{ simple_auth_token_url }}" class="btn" target="_blank" rel="noopener">
+    Sign in to my Nova account
+  </a>
+  <!-- <br>
+  <a href="{{ simple_auth_token_url }}" class="link">{{simple_auth_token_url}}</a> -->
+</p>
+{% endblock %}

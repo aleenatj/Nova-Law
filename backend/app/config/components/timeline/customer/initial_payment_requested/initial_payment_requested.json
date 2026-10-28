@@ -1,0 +1,16 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "case_type": "{case_type}",
+        "lawyer_name": "{lawyer_name}",
+        "amount_requested": "{amount_requested}",
+        "payment_id": "{payment_id}",
+        "status": "{status}",
+        "failed_attempts": "{failed_attempts}",
+        "action_buttons": {
+            "make_payment": true
+        }
+    }
+}

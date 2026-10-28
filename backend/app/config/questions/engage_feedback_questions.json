@@ -1,0 +1,16 @@
+[
+  { "id": 1, "field": "created_at", "label": "Created At" },
+  { "id": 2, "field": "time_value_feedback", "label": "How do you feel about the length of time it has taken you to complete Engage?" },
+  { "id": 3, "field": "completion_time", "label": "How long did it take you overall to complete your Engage submission?" },
+  { "id": 4, "field": "session_count", "label": "How many sessions did it take you to complete your Engage submission?" },
+  { "id": 5, "field": "help_level", "label": "Which of the following best describes your use of Engage?" },
+  { "id": 6, "field": "helper_type", "label": "Who helped you with Engage?" },
+  { "id": 7, "field": "help_reason", "label": "Would you be willing to tell us why you needed help completing Engage?" },
+  { "id": 8, "field": "preparedness_level", "label": "Having used Engage, how prepared do you feel for your legal consultation?" },
+  { "id": 9, "field": "age_range", "label": "Which age range do you fall into?" },
+  { "id": 10, "field": "gender", "label": "What is your gender?" },
+  { "id": 11, "field": "gender_other", "label": "Gender (other)" },
+  { "id": 12, "field": "overall_experience", "label": "How would you rate your overall experience of using Engage?" },
+  { "id": 13, "field": "improvement_feedback", "label": "Thanks. Is there something we could do to make Engage better? / Sorry to hear that. What could we have done to make Engage better?" },
+  { "id": 14, "field": "recommendation_score", "label": "On a scale of 1 to 10 how likely you recommend Engage to a friend with family law issues? (1 – least likely, 10 – most likely)" }
+]

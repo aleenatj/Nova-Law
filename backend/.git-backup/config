@@ -1,0 +1,399 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:Nova-Law-Limited/nova-platform-backend.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "79_law_firm_crud_operations"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/79_law_firm_crud_operations
+[branch "112_lawyer_crud_operations"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/112_lawyer_crud_operations
+[branch "79_conflict_resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/79_conflict_resolve
+[pull]
+	rebase = false
+[branch "alembic_head_correction"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/alembic_head_correction
+[branch "112_conflict_resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/112_conflict_resolve
+[branch "128_get_interested_lawyers"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/128_get_interested_lawyers
+[branch "164_engage_with_lawyer"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/164_engage_with_lawyer
+[branch "172_customer_kyc_nn_card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/172_customer_kyc_nn_card
+[branch "181-case-decl-nn-card-migrtn-updt"]
+	remote = origin
+	merge = refs/heads/181-case-decl-nn-card-migrtn-updt
+	vscode-merge-base = origin/181-case-decl-nn-card-migrtn-updt
+[branch "172-customer-kyc-nn-card"]
+	vscode-merge-base = origin/181-case-decl-nn-card-migrtn-updt
+	remote = origin
+	merge = refs/heads/172-customer-kyc-nn-card
+[branch "164-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/164-conflict-resolve
+[branch "186-case-new-nn-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/186-case-new-nn-card
+[branch "172-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/172-conflict-resolve
+[branch "187-case-new-law-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/187-case-new-law-card
+[branch "186-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/186-conflict-resolve
+[branch "187-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/187-conflict-resolve
+[branch "214-case-award-law-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/214-case-award-law-email
+[branch "220-case-award-nn-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/220-case-award-nn-email
+[branch "223-case-engage-law-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/223-case-engage-law-email
+[branch "223-233-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/223-233-conflict-resolve
+[branch "238-case-engage-cus-email"]
+	vscode-merge-base = origin/223-233-conflict-resolve
+	remote = origin
+	merge = refs/heads/238-case-engage-cus-email
+[branch "244-case-receipt-cus-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/244-case-receipt-cus-email
+[branch "244-250-251-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/244-250-251-conflict-resolve
+[branch "259-case-more-details-nn-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/259-case-more-details-nn-email
+[branch "259-262-case-more-detail-email-nn-law"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/259-262-case-more-detail-email-nn-law
+[branch "268-customer-talk-to-nn-cus-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/268-customer-talk-to-nn-cus-email
+[branch "278-customer-talk-to-nn-nn-email-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/278-customer-talk-to-nn-nn-email-card
+[branch "284-customer-talk-to-lawyer-email-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/284-customer-talk-to-lawyer-email-card
+[branch "291-customer-talk-to-law-email-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/291-customer-talk-to-law-email-card
+[branch "301-case-interest-event"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/301-case-interest-event
+[branch "311-case-award-cus-email"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/311-case-award-cus-email
+[branch "314-component-testing-bug-fixing"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/314-component-testing-bug-fixing
+[branch "318-add-customerid-customer-registration"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/318-add-customerid-customer-registration
+[branch "320-add-total-cout-and-records-in-page"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/320-add-total-cout-and-records-in-page
+[branch "322-add-lawyer-details-resolve-get-post"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/322-add-lawyer-details-resolve-get-post
+[branch "326-customer-init-pmt-requested-cus-card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/326-customer-init-pmt-requested-cus-card
+[branch "330-case-summary-modification"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/330-case-summary-modification
+[branch "346-navigator-email-to-bcc"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/346-navigator-email-to-bcc
+[branch "355-engage-kyc-autofill"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/355-engage-kyc-autofill
+[branch "photo-urls-updation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/photo-urls-updation
+[branch "369-increase-phone-field-length"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/369-increase-phone-field-length
+[branch "382-prevent-multiple-kyc-submissions"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/382-prevent-multiple-kyc-submissions
+[branch "391-map-events-to-the-timeline-map-table"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/391-map-events-to-the-timeline-map-table
+[branch "404-role-switch-for-navigator"]
+	vscode-merge-base = origin/391-map-events-to-the-timeline-map-table
+	remote = origin
+	merge = refs/heads/404-role-switch-for-navigator
+[branch "404-switch-role-for-navigator"]
+	vscode-merge-base = origin/main
+[branch "404-navigator-role-switch"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/404-navigator-role-switch
+[branch "410-implement-jwe-for-enhanced-security"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/410-implement-jwe-for-enhanced-security
+[branch "391-button-disable-for-events"]
+	vscode-merge-base = origin/main
+[branch "391-map-events-to-the-timeline-map-table_2"]
+	remote = origin
+	merge = refs/heads/391-map-events-to-the-timeline-map-table_2
+	vscode-merge-base = origin/391-map-events-to-the-timeline-map-table_2
+[branch "391-conflict-resolve"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/391-conflict-resolve
+[branch "438-add-filtering-options-in-case-get-endpoint"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/438-add-filtering-options-in-case-get-endpoint
+[branch "disable-button-and-map-events"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/disable-button-and-map-events
+[branch "lawyer-about-increase-length"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/lawyer-about-increase-length
+[branch "email-content-change"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-content-change
+[branch "bug-correction"]
+	vscode-merge-base = origin/main
+[branch "482-case_awarded_to_other_law_card"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/482-case_awarded_to_other_law_card
+[branch "300_complete_onboarding_assessment"]
+	remote = origin
+	merge = refs/heads/300_complete_onboarding_assessment
+	vscode-merge-base = origin/300_complete_onboarding_assessment
+[branch "481-lawyer-case-resolve-list"]
+	remote = origin
+	merge = refs/heads/481-lawyer-case-resolve-list
+	vscode-merge-base = origin/481-lawyer-case-resolve-list
+[branch "500-grant-navigator-full-access-across-all-endpoints"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/500-grant-navigator-full-access-across-all-endpoints
+[branch "staging"]
+	remote = origin
+	merge = refs/heads/staging
+	vscode-merge-base = origin/staging
+[branch "500-conflict-resolve"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/500-conflict-resolve
+[branch "516-fix-inconsistent-button-disabling"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/516-fix-inconsistent-button-disabling
+[branch "518-add-dr-preferences-logic-in-lawyer"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/518-add-dr-preferences-logic-in-lawyer
+[branch "518-dr-preferences-staging"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/518-dr-preferences-staging
+[branch "527-implement-magic-link-for-customer-login"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/527-implement-magic-link-for-customer-login
+[branch "634-update-card-data"]
+	remote = origin
+	merge = refs/heads/634-update-card-data
+	vscode-merge-base = origin/634-update-card-data
+[branch "card-email-updates"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/card-email-updates
+[branch "consultaion-change"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/consultaion-change
+[branch "email-cta-corrections"]
+	vscode-merge-base = origin/main
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-cta-corrections
+[branch "747_cron_not-interested_notification_after_24_hours"]
+	remote = origin
+	merge = refs/heads/747_cron_not-interested_notification_after_24_hours
+	vscode-merge-base = origin/747_cron_not-interested_notification_after_24_hours
+[branch "email-name-correction"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-name-correction
+[branch "email-subject-change"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-subject-change
+[branch "738-engage-feedback-form"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/738-engage-feedback-form
+[branch "generate-ai-summary"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/generate-ai-summary
+[branch "summary-ai-generation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/summary-ai-generation
+[branch "generate-ai-summary-stage-conflict"]
+	vscode-merge-base = origin/staging
+[branch "generate-ai-summary-stage"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/generate-ai-summary-stage
+[branch "form-validation"]
+	vscode-merge-base = origin/main
+[branch "688_lawyer_legalexpert_map_card_changes"]
+	remote = origin
+	merge = refs/heads/688_lawyer_legalexpert_map_card_changes
+	vscode-merge-base = origin/688_lawyer_legalexpert_map_card_changes
+[branch "engage-feedback-validation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/engage-feedback-validation
+[branch "engage-feedback-validation-stage-conflict"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/engage-feedback-validation-stage-conflict
+[branch "email-content-changes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-content-changes
+[branch "email-content-change-stage-conflict"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/email-content-change-stage-conflict
+[branch "email-changes"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/email-changes
+[branch "email-copy-changes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-copy-changes
+[branch "email-first-content"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-first-content
+[branch "email-matching-lawyers"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-matching-lawyers
+[branch "emails-value-mismatch"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/emails-value-mismatch
+[branch "card-email-modifications"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/card-email-modifications
+[branch "score-calculation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/score-calculation
+[branch "conflict-level-update"]
+	vscode-merge-base = origin/main
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/conflict-level-update
+[branch "name-length-update"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/name-length-update
+[branch "532-engage-updates"]
+	remote = origin
+	merge = refs/heads/532-engage-updates
+	vscode-merge-base = origin/532-engage-updates
+	vscode-merge-base = origin/532-engage-updates
+[branch "976-send-case-notifications-to-additoinal-experts"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/976-send-case-notifications-to-additoinal-experts
+[branch "869-normalize-email-for-login-validation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/869-normalize-email-for-login-validation
+[branch "email-saved-lowercase"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-saved-lowercase
+[branch "email-lowercase"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/email-lowercase
+[branch "resolve-asset-value-question"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/resolve-asset-value-question

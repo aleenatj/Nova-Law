@@ -1,0 +1,237 @@
+name: Build and Deploy Lambda Package (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        default: "staging"
+      lambda-function-name:
+        required: true
+        type: string
+      lambda-layer-name:
+        required: true
+        type: string
+      migration-lambda-function-name:
+        required: true
+        type: string
+      python-version:
+        required: false
+        type: string
+        default: "3.13"
+      lambda-limit-mb:
+        required: false
+        type: string
+        default: "250"
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+    outputs:
+      build-success:
+        description: "Result of build"
+        value: ${{ jobs.build-and-deploy.outputs.build-success }}
+      deployment-success:
+        description: "Result of deployment"
+        value: ${{ jobs.build-and-deploy.outputs.deployment-success }}
+      previous-version:
+        description: "Previous version before deployment"
+        value: ${{ jobs.build-and-deploy.outputs.previous-version }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and Deploy Lambda Package
+    environment: ${{ inputs.environment }}
+    outputs:
+      build-success: ${{ steps.build-status.outputs.success }}
+      deployment-success: ${{ steps.deploy-status.outputs.success }}
+      previous-version: ${{ steps.previous-version.outputs.previous-version }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install poetry export plugin
+      run: |
+        poetry self add poetry-plugin-export
+
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.create true
+        poetry config virtualenvs.in-project false
+
+    - name: Install production dependencies
+      run: |
+        poetry install --without dev
+
+    - name: Build Lambda package
+      run: |
+        poetry run python scripts/build_lambda_package.py --create-layer
+
+    - name: Check package size
+      run: |
+        PACKAGE_SIZE=$(du -sm dist/lambda-package.zip | cut -f1)
+        echo "Lambda package size: ${PACKAGE_SIZE}MB"
+        if [ $PACKAGE_SIZE -gt ${{ inputs.lambda-limit-mb }} ]; then
+          echo "❌ Package size ${PACKAGE_SIZE}MB exceeds Lambda limit ${{ inputs.lambda-limit-mb }}MB"
+          exit 1
+        else
+          echo "✅ Package size ${PACKAGE_SIZE}MB is within limits"
+        fi
+
+    - name: Set build status
+      id: build-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT
+        echo "✅ Build completed successfully"
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Create Backup
+      run: |
+        set +x
+        echo "💾 Creating backup of current Lambda function..."
+        if aws lambda get-function --function-name ${{ inputs.lambda-function-name }} --no-cli-pager >/dev/null 2>&1; then
+          aws lambda get-function \
+            --function-name ${{ inputs.lambda-function-name }} \
+            --query 'Code.Location' \
+            --output text \
+            --no-cli-pager > function-url.txt 2>/dev/null
+
+          if [ -s function-url.txt ]; then
+            curl -s -o lambda-package-backup.zip "$(cat function-url.txt)" >/dev/null 2>&1
+            echo "✅ Backup created: lambda-package-backup.zip"
+          else
+            echo "⚠️ Could not create backup - function URL not available"
+          fi
+        else
+          echo "ℹ️ No existing function to backup"
+        fi
+
+    - name: Get Previous Version
+      id: previous-version
+      run: |
+        set +x
+        PREV_VERSION=$(aws lambda get-function --function-name ${{ inputs.lambda-function-name }} --query 'Configuration.Version' --output text --no-cli-pager 2>/dev/null || echo "1")
+        echo "previous-version=$PREV_VERSION" >> $GITHUB_OUTPUT
+        echo "📋 Previous version: $PREV_VERSION"
+
+    - name: Deploy to Lambda
+      run: |
+        set +x
+        echo "🚀 Starting Lambda deployment..."
+        aws lambda update-function-code \
+          --function-name ${{ inputs.lambda-function-name }} \
+          --zip-file fileb://dist/lambda-package.zip \
+          --no-cli-pager >/dev/null 2>&1
+
+        aws lambda wait function-updated \
+          --function-name ${{ inputs.lambda-function-name }} \
+          --no-cli-pager >/dev/null 2>&1
+
+        aws lambda update-function-configuration \
+          --function-name ${{ inputs.lambda-function-name }} \
+          --handler lambda_handler.lambda_handler \
+          --runtime python3.13 \
+          --timeout 30 \
+          --memory-size 256 \
+          --no-cli-pager >/dev/null 2>&1
+
+        aws lambda wait function-updated \
+          --function-name ${{ inputs.lambda-function-name }} \
+          --no-cli-pager >/dev/null 2>&1
+
+        echo "✅ Lambda deployment completed successfully"
+
+        # if [ -f "dist/lambda-layer.zip" ]; then
+        #   echo "🔧 Publishing Lambda layer..."
+
+          
+        #   # Check if the zip file is non-empty before publishing
+        #   if [ -s "dist/lambda-layer.zip" ]; then
+        #     aws lambda publish-layer-version \
+        #       --layer-name ${{ inputs.lambda-layer-name }} \
+        #       --description "Dependencies for Nova Law API (${{ inputs.environment }})" \
+        #       --zip-file fileb://dist/lambda-layer.zip \
+        #       --compatible-runtimes python3.13 \
+        #       --no-cli-pager >/dev/null 2>&1
+        #     echo "✅ Lambda layer published successfully"
+        #   else
+        #     echo "⚠️ Lambda layer zip file is empty, skipping layer publication"
+        #   fi
+        # else
+        #   echo "ℹ️ No lambda layer zip file found, skipping layer publication"
+        # fi
+
+        if aws lambda get-function --function-name ${{ inputs.migration-lambda-function-name }} --no-cli-pager >/dev/null 2>&1; then
+          echo "🔄 Updating Migration Lambda function..."
+          aws lambda update-function-code \
+            --function-name ${{ inputs.migration-lambda-function-name }} \
+            --zip-file fileb://dist/lambda-package.zip \
+            --no-cli-pager >/dev/null 2>&1
+
+          aws lambda wait function-updated \
+            --function-name ${{ inputs.migration-lambda-function-name }} \
+            --no-cli-pager >/dev/null 2>&1
+
+          aws lambda update-function-configuration \
+            --function-name ${{ inputs.migration-lambda-function-name }} \
+            --handler migration_lambda_handler.lambda_handler \
+            --runtime python3.13 \
+            --timeout 300 \
+            --memory-size 256 \
+            --no-cli-pager >/dev/null 2>&1
+
+          echo "✅ Migration Lambda function updated successfully"
+        else
+          echo "⚠️ Migration Lambda function not found. Please create it manually using the setup guide."
+        fi
+
+        if aws lambda get-function --function-name socket_lambda --no-cli-pager >/dev/null 2>&1; then
+          echo "🔌 Updating Socket Lambda function..."
+          aws lambda update-function-code \
+            --function-name socket_lambda \
+            --zip-file fileb://dist/socket-lambda-package.zip \
+            --no-cli-pager >/dev/null 2>&1
+
+          aws lambda wait function-updated \
+            --function-name socket_lambda \
+            --no-cli-pager >/dev/null 2>&1
+
+          aws lambda update-function-configuration \
+            --function-name socket_lambda \
+            --handler lambda_function.lambda_handler \
+            --runtime python3.13 \
+            --timeout 30 \
+            --memory-size 128 \
+            --no-cli-pager >/dev/null 2>&1
+
+          echo "✅ Socket Lambda function updated successfully"
+        else
+          echo "⚠️ Socket Lambda function not found. Please create it manually using the setup guide."
+        fi
+
+    - name: Set Deployment Status
+      id: deploy-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT

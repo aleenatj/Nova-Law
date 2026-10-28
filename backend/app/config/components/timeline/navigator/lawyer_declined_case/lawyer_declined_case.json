@@ -1,0 +1,12 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "lawyer_name": "{lawyer_name}",
+        "reasons": "{reasons}",
+        "reason_other": "{reason_other}",
+        "customer_name": "{customer_name}",
+        "action_buttons": {}
+    }
+}

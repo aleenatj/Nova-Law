@@ -1,0 +1,18 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Selected by Customer</h2>
+<p>Hi {{ navigator_name }}</p>
+{% if is_navigator_action %}
+<p>{{ action_by }} have successfully awarded case <strong>{{ case_number }}</strong> to {{ lawyer_name }} on behalf of {{ customer_name }}.</p>
+{% else %}
+<p>{{customer_name}} has chosen {{lawyer_name}} to support their situation.</p>
+{% endif %}
+<p>The next steps will now follow in Nova. You can review the details and monitor progress there.</p>
+  <div class="text-center">
+      <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+      <!-- <br>
+      <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+  </div>
+
+{% endblock %}

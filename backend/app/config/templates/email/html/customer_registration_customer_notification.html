@@ -1,0 +1,22 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Welcome</h2>
+<p>Hi {{ customer_name | default('there') }}</p>
+
+<p>Your Nova account is now set up and ready to use.</p>
+
+<p>You can sign into your Nova dashboard at any time to view your personalised recommendation and explore your options at your own pace.</p>
+
+<p>If you have any questions as you get started, our team is here to help.</p>
+
+<div class="text-center">
+    <a href="{{ redirect_url }}" class="btn">Go to My Nova Dashboard</a>
+    <!-- <br>
+    <a href="{{ redirect_url }}" class="link">{{redirect_url}}</a> -->
+</div>
+{% endblock %}
+
+{% block after_signoff %}
+<div style="text-align: center; font-style: italic; margin-top: 24px;">Nova may connect you with a family law professional at Family Law Partners, a regulated law firm. You are under no obligation to work with them. Nova Law Trading Limited and Family Law Partners (UK) Limited are independent companies with some shareholders in common.</div>
+{% endblock %}

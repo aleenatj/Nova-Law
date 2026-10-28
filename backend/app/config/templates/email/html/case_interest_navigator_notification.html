@@ -1,0 +1,21 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Interest Received</h2>
+  <p>Hi {{ navigator_name }}</p>
+  {% if is_navigator_action %}
+  <p>
+    {{lawyer_name}} has expressed interest in supporting {{customer_name}}.
+  </p>
+  {% else %}
+  <p>
+    <b style="text-transform: capitalize;">{{ lawyer_name }}</b> has expressed interest in taking on your case <b>{{ case_number}}</b>, with <b>{{ experience }}</b> of experience in <b>{{ case_type }}</b> and a proven history of successfully handling similar cases.
+  </p>
+  {% endif %}
+  <p>You can review the details and decide next steps in Nova.</p>
+  <div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+  </div>
+{% endblock %}

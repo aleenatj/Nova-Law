@@ -1,0 +1,45 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Alignment Check Submitted for Review</h2>
+<p>Hi {{ navigator_name | default('Navigator') }}</p>
+
+{% if action_by %}
+<p>Nova Expert Alignment Check for <strong>{{ customer_name }}</strong> related to case <strong>{{ case_number }}</strong> has been submitted by <strong>{{ action_by }}</strong>.</p>
+{% else %}
+<p>{{customer_name}} has submitted their Nova Expert Alignment Check.</p>
+{% endif %}
+<p>This is ready for review to confirm availability and fit with the relevant Nova Experts.</p>
+<p>You can review the details and take any next steps in Nova.</p>
+
+{% if matched_lawyers_list and matched_lawyers_list|length > 0 %}
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Matched Experts</h3>
+    <p style="margin-bottom: 15px;">The following experts have been matched for this case:</p>
+    
+    <div>
+        {% for lawyer in matched_lawyers_list %}
+        <div style="display: inline-block; padding: 4px 8px; border: 1px solid #e9ecef; border-radius: 16px; background-color: #ffffff; margin: 4px 4px 4px 0; vertical-align: middle;">
+            {% if lawyer.photo_url %}
+                <img src="{{ lawyer.photo_url }}" alt="{{ lawyer.name }}" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 6px; border: 1px solid #ddd; vertical-align: middle; display: inline-block;">
+            {% else %}
+                {% set first_letter = (lawyer.name | default('U'))[0] | upper %}
+                <div class="profile-placeholder profile-placeholder-small profile-placeholder-bordered-light" style="margin-right: 6px; vertical-align: middle;">
+                    {{ first_letter }}
+                </div>
+            {% endif %}
+            <span style="vertical-align: middle;"><strong>{{ lawyer.name }}</strong></span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+
+{% endblock %}

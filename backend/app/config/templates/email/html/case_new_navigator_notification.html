@@ -1,0 +1,39 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Matching Completed</h2>
+<p>Hi {{ navigator_name | default('Navigator') }}</p>
+
+<p>Nova Expert matching for {{customer_name}} is complete.</p>
+<p>The relevant Nova Experts have been notified and can now respond.</p>
+
+{% if notified_lawyers and notified_lawyers|length > 0 %}
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Notified Experts</h3>
+    <p style="margin-bottom: 15px;">The following experts have been notified about the case:</p>
+    
+    <div>
+        {% for lawyer in notified_lawyers %}
+        <div style="display: inline-block; padding: 4px 8px; border: 1px solid #e9ecef; border-radius: 16px; background-color: #ffffff; margin: 4px 4px 4px 0; vertical-align: middle;">
+            {% if lawyer.photo_url %}
+                <img src="{{ lawyer.photo_url }}" alt="{{ lawyer.name }}" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 6px; border: 1px solid #ddd; vertical-align: middle; display: inline-block;">
+            {% else %}
+                {% set first_letter = (lawyer.name | default('U'))[0] | upper %}
+                <div class="profile-placeholder profile-placeholder-small profile-placeholder-bordered-light" style="margin-right: 6px; vertical-align: middle;">
+                    {{ first_letter }}
+                </div>
+            {% endif %}
+            <span style="vertical-align: middle;"><strong>{{ lawyer.name }}</strong></span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+
+{% endblock %}

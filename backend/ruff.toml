@@ -1,0 +1,99 @@
+target-version = "py311"
+line-length = 88
+indent-width = 4
+
+[lint]
+select = [
+    "E", "F", "I", "N", "W", "B", "C4", "UP", "ARG", "PTH", "ERA", "PD", "PGH", "PL", "TRY", "NPY", "AIR", "PERF", "LOG", "RUF"
+]
+ignore = [
+    "E501",  # line too long, handled by formatter
+    "D200",  # one-line-docstring-should-be-on-one-line
+    "D201",  # no-blank-line-before-docstring
+    "D202",  # no-blank-line-after-docstring
+    "D205",  # 1-blank-line-required-summary-line
+    "D208",  # no-blank-line-after-docstring
+    "D209",  # multi-line-docstring-closing-bracket-should-be-on-a-separate-line
+    "D210",  # no-surrounding-whitespace
+    "D211",  # no-blank-line-before-docstring (KEEP THIS - better practice)
+    "D212",  # multi-line-docstring-summary-should-start-at-the-first-line (KEEP THIS - better practice)
+    "D214",  # section-underline-should-be-passed
+    "D215",  # section-underline-is-missing
+    "D300",  # use-triple-quotes
+    "D301",  # use-r-prefix-for-backslash-escaped-string
+    "D400",  # first-line-should-end-with-a-period
+    "D401",  # first-line-should-be-in-imperative-mood
+    "D402",  # first-line-should-not-be-the-functions-signature
+    "D403",  # one-word-per-line
+    "D404",  # no-this-any-other
+    "D405",  # capitalize-section-name
+    "D406",  # new-line-after-section-name
+    "D407",  # missing-dashed-underline-after-section
+    "D408",  # section underline should be in the line following the section's name
+    "D409",  # section underline should match the length of its name
+    "D410",  # missing-blank-line-after-section
+    "D411",  # missing-blank-line-before-section
+    "D412",  # no-blank-lines-between-header-and-content
+    "D413",  # missing-blank-line-after-last-section
+    "D414",  # section has no content
+    "D415",  # first-line-should-end-with-a-period
+    "D416",  # section name should end with a newline
+    "D417",  # missing-argument-description
+    "D418",  # missing-argument-description
+    "D419",  # non-argument-description
+    # Keep essential rules for code quality
+    "PLR2004", # magic numbers (keep - good practice)
+    "SIM114", # combine if branches (keep - good practice)
+    "SIM116", # use dictionary instead of consecutive if statements (keep - good practice)
+    "RET505", # unnecessary elif after return (keep - good practice)
+    "TRY300", # consider moving to else block (keep - good practice)
+    "TRY401", # redundant exception object (keep - good practice)
+    "ARG001", # unused function argument (keep - good practice)
+    "ARG002", # unused method argument (keep - good practice)
+    "BLE001", # do not catch blind exception (keep - good practice)
+    "FBT001", # boolean-typed positional argument (keep - good practice)
+    "FBT002", # boolean default positional argument (keep - good practice)
+    "PYI041", # use float instead of int | float (keep - good practice)
+    "DTZ007", # naive datetime (keep - good practice)
+    "SIM118", # use key in dict instead of key in dict.keys() (keep - good practice)
+    "RET504", # unnecessary assignment before return (keep - good practice)
+    "G004",   # logging statement uses f-string (keep - good practice)
+    "T201",   # print found (keep - good practice)
+    "EXE001", # shebang is present but file is not executable (keep - good practice)
+    "RUF001", # string contains ambiguous character (keep - good practice)
+    "S602",   # subprocess call with shell=True (keep - good practice)
+    "TD002",  # missing author in TODO (keep - good practice)
+    "TD003",  # missing issue link on the line following this TODO (keep - good practice)
+    "FIX002", # line contains TODO (keep - good practice)
+    "B008",   # do not perform function call in argument defaults (keep - good practice)
+    "PGH003", # use specific rule codes when ignoring type issues (keep - good practice)
+    "PTH123", # open() should be replaced by Path.open() (keep - good practice)
+    "PLR0911", # too many return statements (disable - complex business logic)
+    "PLR0912", # too many branches (disable - complex business logic)
+    "PLR0913", # too many arguments in function definition (keep - good practice)
+    "PLR0915", # too many statements (disable - complex business logic)
+    "ERA001", # found commented-out code (keep - good practice)
+    "PERF401", # use a list comprehension to create a transformed list (keep - good practice)
+    "TRY002", # create your own exception (keep - good practice)
+    "TRY003", # avoid specifying long messages outside the exception class (keep - good practice)
+]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["S101", "S603", "S607"]
+
+[lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[lint.isort]
+known-first-party = ["app"]
+known-third-party = ["fastapi", "sqlalchemy", "pydantic"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+preview = true
+line-ending = "auto"
+exclude = ["app/core/error_handling.py"]

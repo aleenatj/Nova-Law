@@ -1,0 +1,42 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Expert Requested More Details</h2>
+
+<p>Hi {{ navigator_name }}</p>
+{% if is_navigator_action %}
+<p>
+    {{ action_by }} have requested additional information for the case <strong>{{ case_number }}</strong> on behalf of <b style="text-transform: capitalize;">{{ lawyer_name }}</b>.
+</p>
+{% else %}
+<p><strong>{{ lawyer_name }}</strong> has requested additional information for the case <strong>{{ case_number }}</strong>. They need more details about the case before making a decision on representation.</p>
+{% endif %}
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Expert's Request:</h3>
+    <span>{{ lawyer_request }}</span>
+</div>
+<h3>Next Steps:</h3>
+    <ul>
+        <li>Review the case details and provide additional informations</li>
+        <li>Contact the client if more information is needed</li>
+        <li>Update the case summary with any new details</li>
+        <li>Expert will be notified when additional information is available</li>
+    </ul>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+        <h3 class="section-heading">Expert Info</h3>
+        <div><strong>Name:</strong> {{ lawyer_name }}</div>
+        <div><strong>Email:</strong> {{ lawyer_email }}</div>
+    </div>
+    
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+        <h3 class="section-heading">Customer Info</h3>
+        <div><strong>Name:</strong> {{ customer_name }}</div>
+        <div><strong>Email:</strong> {{ customer_email }}</div>
+    </div>
+    <div class="text-center">
+        <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+        <!-- <br>
+        <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+    </div>
+{% endblock %}

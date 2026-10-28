@@ -1,0 +1,20 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Alignment Check</h2>
+<p>Hi {{ customer_name | default('there') }}</p>
+
+{% if action_by == "Navigator" %}
+<p>Your Alignment Check details for case <b>{{ case_number }}</b> have been successfully submitted on your behalf by our Nova Navigator team. We have received and confirmed your submission.</p>
+{% else %}
+<p>We’ve received the information you provided for your Nova Expert Alignment Check</p>
+{% endif %}
+
+<p>You don’t need to do anything right now. We’ll be in touch once this review is complete with a set of Nova Experts interested in supporting you.</p>
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View your details in your Nova dashboard</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+{% endblock %}

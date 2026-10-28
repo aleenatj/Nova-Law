@@ -1,0 +1,52 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Your Deposit Has Been Received</h2>
+
+<p>Hi {{ customer_name | default('Customer') }}</p>
+
+<p>
+  We confirm that Family Law Partners have received your £50 deposit into their client account, which secures your Strategic Advice Consultation with {{lawyer_name}}, your Nova Expert.
+</p>
+
+<p>
+  This deposit forms part of the fixed fee of £299 (including VAT) for the consultation.
+  The remaining balance will be paid to Family Law Partners after your consultation has taken place.
+</p>
+
+<p>
+  Your next step is to complete Nova Engage, our AI-powered dynamic briefing experience. This helps ensure your consultation focuses on what matters most to you, rather than simply gathering background information.
+</p>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Payment Details</h3>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Case Number:</span>
+        <span>{{ case_number }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Transaction ID:</span>
+        <span>{{ transaction_id }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Payment Date:</span>
+        <span>{{ payment_date }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Payment Method:</span>
+        <span>{{ payment_method }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Legal Representative:</span>
+        <span>{{ lawyer_name }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Total Paid:</span>
+        <span>£{{ amount_paid | int }}</span>
+      </div>
+</div>
+<div class="text-center">  
+  <a href="{{ engage_token_url | default('#') }}" class="btn">Start Nova Engage</a>
+  <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+</div>
+{% endblock %}

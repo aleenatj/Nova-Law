@@ -1,0 +1,42 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">New Case Shared</h2>
+
+<p>Hi {{ lawyer_name | default('Expert') }}</p>
+
+<p>A new case has been shared with you in Nova.</p>
+<!-- {% if case_summary %}
+<div style="background-color: #f8f9fa; border-radius: 6px; margin: 24px 0; padding: 0;">
+    <h3 class="section-heading" style="margin-top:0; padding: 18px 20px 12px 20px;">Case Summary</h3>
+    {% for item in case_summary %}
+        {% if item.title and item.description %}
+            <div style="background: #fff; margin: 0 20px 18px 20px; padding: 14px 18px 12px 16px;">
+                <div style="font-size: 13px; font-weight: 600; color: #444; margin-bottom: 2px;">{{ item.title | escape }}</div>
+                <div style="border-left: 2px solid #E8731E; padding-left: 1rem; color: #333; font-size: 14px; line-height: 1.7;">{{ item.description | escape }}</div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %} -->
+
+<!-- <div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">What happens next?</h3>
+    <ul style="margin-bottom: 0;">
+        <li>Review the case details in your Nova dashboard</li>
+        <li>Confirm your availability and interest in taking on this case</li>
+        <li>Connect with the client and Nova navigator team as needed</li>
+        <li>Begin working on the case once formally engaged</li>
+    </ul>
+</div> -->
+{% if recommended_pathway %}
+<p>The recommended pathway is {{ recommended_pathway }}. You can review the details and indicate whether you’re interested in supporting this case directly in the platform.</p>
+{% else %}
+<p>You can review the details and indicate whether you’re interested in supporting this case directly in the platform.</p>
+{% endif %}
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View case details</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+name: Build Lambda Package (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: "3.13"
+      lambda-limit-mb:
+        required: false
+        type: string
+        default: "250"
+    outputs:
+      build-success:
+        description: "Result of build"
+        value: ${{ jobs.build-package.outputs.success }}
+
+jobs:
+  build-package:
+    runs-on: ubuntu-latest
+    name: Build Lambda Package
+    outputs:
+      success: ${{ steps.build-status.outputs.success }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install poetry export plugin
+      run: |
+        poetry self add poetry-plugin-export
+
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.create true
+        poetry config virtualenvs.in-project false
+
+    - name: Install production dependencies
+      run: |
+        poetry install --without dev
+
+    - name: Build Lambda package
+      run: |
+        poetry run python scripts/build_lambda_package.py --create-layer
+
+    - name: Check package size
+      run: |
+        PACKAGE_SIZE=$(du -sm dist/lambda-package.zip | cut -f1)
+        echo "Lambda package size: ${PACKAGE_SIZE}MB"
+        if [ $PACKAGE_SIZE -gt ${{ inputs.lambda-limit-mb }} ]; then
+          echo "❌ Package size ${PACKAGE_SIZE}MB exceeds Lambda limit ${{ inputs.lambda-limit-mb }}MB"
+          exit 1
+        else
+          echo "✅ Package size ${PACKAGE_SIZE}MB is within limits"
+        fi
+
+    - name: Set build status
+      id: build-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT
+        echo "✅ Build completed successfully"
+

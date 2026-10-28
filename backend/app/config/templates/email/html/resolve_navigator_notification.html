@@ -1,0 +1,21 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Pathway Recommendation Completed</h2>
+<p>Hi {{ navigator_name | default('there') }}</p>
+
+<p> The pathway recommendation for {{customer_name}} has been completed.</p>
+<p>The recommended approach is {{result_of_resolve.title}}.</p>
+<p>You can review the recommendation and next steps in Nova.</p>
+<div>
+    <p>{{ result_of_resolve.email_summary | safe }}</p>
+</div>
+
+<div class="text-center">
+    <a href="{{ redirect_url }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ redirect_url }}" class="link">{{redirect_url}}</a> -->
+</div>
+{% endblock %}
+
+

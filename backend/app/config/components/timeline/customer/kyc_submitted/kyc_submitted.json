@@ -1,0 +1,10 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "status": "{status}",
+        "kyc_id": "{kyc_id}",
+        "case_number": "{case_number}",
+        "action_buttons": "{action_buttons}"
+    }
+}

@@ -1,0 +1,118 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Legal Expert Sign Up</h2>
+<p>Hi {{ context.lawyer_first_name | default('Legal Expert') }}</p>
+
+<p>You have successfully signed up as a B2C legal expert on the Nova platform.</p>
+
+<!-- <p>Below is a summary of the information you provided during sign up:</p>
+
+<h3 class="section-title">B2C Legal Expert Information</h3>
+<table class="data-table" style="border: 1px solid #e9ecef; border-radius: 8px;">
+    <tr>
+        <td colspan="2" style="text-align: center; padding: 20px; border-bottom: 1px solid #e9ecef;">
+            {% if context.photo_url %}
+            <img src="{{ context.photo_url }}" alt="Profile Photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
+            {% else %}
+            {% set first_letter = (context.lawyer_name | default('L'))[0] | upper %}
+            <div class="profile-placeholder profile-placeholder-large" style="margin: 0 auto;">{{ first_letter }}</div>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td>{{ context.first_name | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>{{ context.last_name | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ context.email | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>{{ context.phone | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>{{ context.gender | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td>{{ context.city | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Post Code</th>
+        <td>{{ context.post_code | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Work Status</th>
+        <td>{{ context.work_status | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Firm Name</th>
+        <td>{{ context.firm_name | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Experience (Years)</th>
+        <td>{{ context.experience | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Professional Status</th>
+        <td>{{ context.professional_status | default('N/A') | replace('\n', '<br>') | safe }}</td>
+    </tr>
+    <tr>
+        <th>Regulator</th>
+        <td>{{ context.regulator | default('N/A') | replace('\n', '<br>') | safe }}</td>
+    </tr>
+    <tr>
+        <th>Accredited Specialist</th>
+        <td>{{ context.accredited_specialist | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>NCDR Magic</th>
+        <td>{{ context.ncdr_magic | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Remote Consultation</th>
+        <td>{{ context.remote_consultation | default('N/A') }}</td>
+    </tr>
+    <tr>
+        <th>Consultation Offers</th>
+        <td>{{ context.consultation_offers | default('N/A') }}</td>
+    </tr>
+
+{% if context.service_details and context.service_details|length > 0 %}
+    {% for item in context.service_details %}
+    <tr>
+        <th>{{ item.category }}</th>
+        <td>{{ item.services | replace('\n', '<br>') | safe }}</td>
+    </tr>
+    {% endfor %}
+{% endif %}
+
+{% if context.ncdr_description or context.compelling_quote %}
+    {% if context.ncdr_description %}
+    <tr>
+        <th>NCDR Description</th>
+        <td>{{ context.ncdr_description }}</td>
+    </tr>
+    {% endif %}
+    {% if context.compelling_quote %}
+    <tr>
+        <th>Compelling Quote</th>
+        <td>{{ context.compelling_quote }}</td>
+    </tr>
+    {% endif %}
+</table>
+{% endif %} -->
+
+<p>Our team will review your profile and you will be notified once your account is fully activated. In the meantime, if you have any questions, please do not hesitate to contact us.</p>
+
+<p>We look forward to working with you!</p>
+
+{% endblock %}
+

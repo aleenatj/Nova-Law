@@ -1,0 +1,14 @@
+{
+    "1":{
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "lawyer_name": "{lawyer_name}",
+      "case_id": "{case_id}",
+      "customer_name": "{customer_name}",
+      "case_type": "{case_type}",
+      "action_buttons":{
+          "mark_onboarding_completed":true
+      }
+  }
+}

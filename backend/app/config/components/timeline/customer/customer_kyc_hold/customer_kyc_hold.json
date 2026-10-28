@@ -1,0 +1,12 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "kyc_id": "{kyc_id}",
+        "action_buttons":{
+            "book_free_call": true,
+	        "alignment_check":true
+        }
+    }
+}

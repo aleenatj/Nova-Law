@@ -1,0 +1,9 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "customer_name": "{customer_name}"
+    }
+}
+

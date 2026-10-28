@@ -1,0 +1,36 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2>Customer Registered Successfully</h2>
+
+<p>Hi {{ navigator_name | default('Navigator') }}</p>
+
+
+<p>A new customer has been successfully registered in the system. Please find the details below:</p>
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid #000; border-collapse: collapse; max-width: 100%; width: 100%; box-sizing: border-box; font-family: inherit;">
+  <tr>
+    <td style="padding: 8px; border-right: 1px solid #000; border-bottom: 1px solid #000; font-weight: 700; box-sizing: border-box; vertical-align: top; width: 40%;">
+      Customer Name
+    </td>
+    <td style="padding: 8px; border-bottom: 1px solid #000; box-sizing: border-box; vertical-align: top; word-break: break-word;">
+      {{ customer_name }}
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding: 8px; border-right: 1px solid #000; box-sizing: border-box; font-weight: 700; vertical-align: top; width: 40%;">
+      Customer Email
+    </td>
+    <td style="padding: 8px; box-sizing: border-box; vertical-align: top; word-break: break-word;">
+      {{ customer_email }}
+    </td>
+  </tr>
+</table>
+
+<div class="text-center">
+    <a href="{{ redirect_url }}" class="btn">Go To My Nova</a>
+    <!-- <br>
+    <a href="{{ redirect_url | default('#') }}" class="link">{{redirect_url}}</a> -->
+</div>
+{% endblock %}

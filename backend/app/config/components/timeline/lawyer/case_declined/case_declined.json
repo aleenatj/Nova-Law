@@ -1,0 +1,12 @@
+{
+    "1":{
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "reasons": "{reasons}",
+      "reason_other": "{reason_other}",
+      "action_buttons":{
+          "raise_interest":true
+      }
+  }
+}

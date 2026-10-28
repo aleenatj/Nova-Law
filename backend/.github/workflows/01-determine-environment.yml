@@ -1,0 +1,64 @@
+name: Determine Environment (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      ref-name:
+        required: false
+        type: string
+        default: ${{ github.ref_name }}
+    outputs:
+      environment:
+        description: "Target environment"
+        value: ${{ jobs.determine-environment.outputs.environment }}
+      lambda-function-name:
+        description: "Lambda function name"
+        value: ${{ jobs.determine-environment.outputs.lambda-function-name }}
+      lambda-layer-name:
+        description: "Lambda layer name"
+        value: ${{ jobs.determine-environment.outputs.lambda-layer-name }}
+      migration-lambda-function-name:
+        description: "Migration Lambda function name"
+        value: ${{ jobs.determine-environment.outputs.migration-lambda-function-name }}
+
+jobs:
+  determine-environment:
+    runs-on: ubuntu-latest
+    name: Determine Environment
+    outputs:
+      environment: ${{ steps.env.outputs.environment }}
+      lambda-function-name: ${{ steps.env.outputs.lambda-function-name }}
+      lambda-layer-name: ${{ steps.env.outputs.lambda-layer-name }}
+      migration-lambda-function-name: ${{ steps.env.outputs.migration-lambda-function-name }}
+
+    steps:
+    - name: Determine Deployment Environment
+      id: env
+      run: |
+        echo "🎯 Determining deployment environment..."
+        # Branch to environment mapping
+        case "${{ inputs.ref-name }}" in
+          "main")
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "lambda-function-name=nova-law-api" >> $GITHUB_OUTPUT
+            echo "lambda-layer-name=nova-law-dependencies" >> $GITHUB_OUTPUT
+            echo "migration-lambda-function-name=nova-law-migration" >> $GITHUB_OUTPUT
+            ;;
+          "staging")
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "lambda-function-name=nova-law-api" >> $GITHUB_OUTPUT
+            echo "lambda-layer-name=nova-law-dependencies" >> $GITHUB_OUTPUT
+            echo "migration-lambda-function-name=nova-law-migration" >> $GITHUB_OUTPUT
+            ;;
+          *)
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "lambda-function-name=nova-law-api" >> $GITHUB_OUTPUT
+            echo "lambda-layer-name=nova-law-dependencies" >> $GITHUB_OUTPUT
+            echo "migration-lambda-function-name=nova-law-migration" >> $GITHUB_OUTPUT
+            ;;
+        esac
+
+        echo "🎯 Deploying to environment: ${{ steps.env.outputs.environment }}"
+        echo "🔧 Lambda function: ${{ steps.env.outputs.lambda-function-name }}"
+        echo "📦 Lambda layer: ${{ steps.env.outputs.lambda-layer-name }}"
+        echo "🔄 Migration Lambda function: ${{ steps.env.outputs.migration-lambda-function-name }}"

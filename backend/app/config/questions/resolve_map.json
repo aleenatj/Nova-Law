@@ -1,0 +1,35 @@
+{
+    "5": {
+        "versions": {
+            "1": {
+                "options_relationships": {
+                    "children": [
+                        "14",
+                        "15"
+                    ],
+                    "finance": [
+                        "19",
+                        "20"
+                    ]
+                },
+                "type": "multiple"
+            }
+        }
+    },
+    "6": {
+        "versions": {
+            "1": {
+                "options_relationships": {
+                    "court_proceedings_in_court": [
+                        "7"
+                    ],
+                    "court_proceedings_away_from_court": [
+                        "7"
+                    ],
+                    "no_court_proceedings": []
+                },
+                "type": "single"
+            }
+        }
+    }
+}

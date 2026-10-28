@@ -1,0 +1,44 @@
+{
+  "name": "nova-platform-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:ssg": "tsc && vite build && node scripts/run-prerender.mjs && node scripts/move-client-files.mjs && node scripts/generate-spa-shell.mjs",
+    "preview": "vite preview",
+    "serve": "node scripts/serve-local.mjs",
+    "check": "tsc"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@radix-ui/react-progress": "^1.1.7",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "country-flag-icons": "^1.6.4",
+    "date-fns": "^4.1.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-gtm-module": "^2.0.11",
+    "react-hook-form": "^7.55.0",
+    "react-progress": "^0.0.12",
+    "tailwind-merge": "^2.6.0",
+    "wouter": "^3.7.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.6.3",
+    "vite": "^5.4.19",
+    "vite-plugin-ssr": "^0.4.142"
+  }
+}

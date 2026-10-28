@@ -1,0 +1,10 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<table>
+    {% for row in qa_rows %}
+        <tr style="background-color: #E3F2FD; padding: 5px;">{{ row.label }}</tr>
+        <tr style="padding: 5px;">{{ row.answer }}</tr>
+    {% endfor %}
+</table>
+{% endblock %}

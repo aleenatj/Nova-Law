@@ -1,0 +1,19 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Talk to Nova Expert Requested</h2>
+<p>Hi {{ customer_name }}</p>
+{% if is_navigator_action %}
+<p>
+    The Nova Navigator team has requested to talk to expert for guidance on the case <strong>{{ case_number }}</strong> on your behalf.
+</p>
+{% else %}
+<p>You’ve requested a conversation with {{ lawyer_name }}.</p>
+{% endif %}
+<p>A Nova Navigator will be in touch shortly to arrange a time that works for you.</p>
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+  </div>
+{% endblock %}

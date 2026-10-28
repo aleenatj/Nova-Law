@@ -1,0 +1,9 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "lawyer_profiles": "{lawyer_profiles}",
+        "action_buttons": {}
+    }
+}

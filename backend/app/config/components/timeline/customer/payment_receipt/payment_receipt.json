@@ -1,0 +1,15 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "lawyer_name": "{lawyer_name}",
+        "transaction_id": "{transaction_id}",
+        "payment_date": "{payment_date}",
+        "payment_method": "{payment_method}",
+        "amount_paid": "{amount_paid}",
+        "invoice_id": "{invoice_id}",
+        "payment_status": "{payment_status}",
+        "action_buttons": "{action_buttons}"
+    }
+}

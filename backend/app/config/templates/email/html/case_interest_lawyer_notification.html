@@ -1,0 +1,23 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+  <h2 class="align-left"> Interest Recorded</h2>
+  <p>Hi {{ lawyer_name }}</p>
+  {% if is_navigator_action %}
+  <p>
+    Your interest in representing case <strong>{{ case_number }}</strong> has been recorded.
+  </p>
+  <p>The Nova Navigator team will review your profile alongside other interested Nova Experts. If chosen by the client, you’ll be notified within 1–2 working days.</p>
+  <p>You can view the case details below.</p>
+  {% else %}
+  <p>
+    Thanks for letting us know you’re interested in supporting this case.
+  </p>
+  <p>We’ve recorded your interest and will review it alongside other responses. You’ll be notified of the next steps once this review is complete.</p>
+  {% endif %}
+  <div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+  </div>
+{% endblock %}

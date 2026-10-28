@@ -1,0 +1,1 @@
+export { Badge } from './v1/Badge'

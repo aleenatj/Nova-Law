@@ -1,0 +1,13 @@
+{
+    "1":{
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "lawyer_name": "{lawyer_name}",
+      "about_lawyer":"{about_lawyer}",
+      "interest_message":"{interest_message}",
+      "action_buttons":{
+          "send_reviewed_profiles":true
+      }
+  }
+}

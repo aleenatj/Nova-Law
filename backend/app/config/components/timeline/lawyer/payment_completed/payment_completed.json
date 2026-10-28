@@ -1,0 +1,14 @@
+{
+    "1":{
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "customer_name": "{customer_name}",
+      "case_type": "{case_type}",
+      "amount_paid": "{amount_paid}",
+      "transaction_id": "{transaction_id}",
+      "status": "{status}",
+      "action_buttons":{
+      }
+  }
+}

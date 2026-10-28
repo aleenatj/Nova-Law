@@ -1,0 +1,244 @@
+# Environment variables
+.env
+.env.local
+.env.production
+.env.staging
+venv-be/
+
+# Poetry
+poetry.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+# poetry.lock  # Should be committed for reproducible builds
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Docker
+.dockerignore
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Alembic - migration files should be tracked in version control
+
+
+dump.rdb
+
+# Node modules (if any frontend assets)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+logs/
+app.log
+
+# Security reports
+bandit-report.json
+*.bandit
+
+# Lambda Optimization - Generated Files
+# Build artifacts
+build/
+dist/
+lambda-layer/
+lambda-layer.zip
+lambda-package.zip
+*.zip
+
+# Generated configuration files
+pyproject.optimized.toml
+requirements.txt
+requirements-*.txt
+
+# Generated Docker files
+Dockerfile.lambda
+Dockerfile.optimized
+
+# Generated scripts
+build-lambda-layer.sh
+lambda-layer-builder.sh
+
+# Size reports
+size_report.txt
+package_size_report.json
+lambda-size-analysis.json
+
+# CI/CD artifacts
+ci-size-report.json
+github-comment.txt
+slack-notification.json
+
+# Test packages
+test-package/
+quick-test.zip
+deployment-test.zip
+
+# Layer artifacts
+lambda-layer-python/
+layer-dependencies/
+
+# Optimization cache
+.optimization_cache/
+lambda_build_cache/
+
+# Generated documentation
+lambda-optimization-report.md
+dependency-analysis-report.md

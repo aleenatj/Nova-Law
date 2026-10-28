@@ -1,0 +1,1 @@
+export { default as MultiSelect } from './v1/MultiSelect'

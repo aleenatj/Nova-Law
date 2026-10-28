@@ -1,0 +1,59 @@
+name: Rollback Deployment (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      lambda-function-name:
+        required: true
+        type: string
+      deployment-success:
+        required: true
+        type: string
+      migration-success:
+        required: true
+        type: string
+    outputs:
+      rollback-success:
+        description: "Result of rollback"
+        value: ${{ jobs.rollback.outputs.success }}
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    name: Rollback Deployment
+    environment: ${{ inputs.environment }}
+    if: ${{ inputs.deployment-success == 'false' || inputs.migration-success == 'false' }}
+    outputs:
+      success: ${{ steps.rollback-status.outputs.success }}
+
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Rollback Lambda Function
+      run: |
+        echo "🔄 Rolling back Lambda function due to deployment/migration failure..."
+        if [ -f "lambda-package-backup.zip" ]; then
+          echo "📦 Restoring from backup package..."
+          aws lambda update-function-code \
+            --function-name ${{ inputs.lambda-function-name }} \
+            --zip-file fileb://lambda-package-backup.zip
+
+          aws lambda wait function-updated --function-name ${{ inputs.lambda-function-name }}
+          echo "✅ Lambda function rollback completed"
+        else
+          echo "⚠️ No backup package found, marking deployment as failed"
+          echo "💡 Manual intervention required to restore previous version"
+        fi
+
+    - name: Set Rollback Status
+      id: rollback-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT

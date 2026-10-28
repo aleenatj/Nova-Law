@@ -1,0 +1,16 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Triage Case Opened</h2>
+<p>Hi {{ navigator_name }}</p>
+
+<p>A new case has been opened via triage form submission and requires review.</p>
+
+<p>Case <b>{{ case_number }}</b> has been registered for customer <b>{{ customer_name }}</b> ({{ customer_email }}) as a <b>{{ case_type }}</b>. It has been classified as <b>{{ priority }}</b> priority and was opened on <b>{{ start_date }}</b>.</p>
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+</div>
+<p>Please review the triage details and continue case handling to ensure timely support for the client.</p>
+
+{% endblock %}

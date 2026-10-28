@@ -1,0 +1,13 @@
+{
+  "1": {
+    "action_by": "{action_by}",
+    "timestamp": "{timestamp}",
+    "case_number": "{case_number}",
+    "lawyer_name": "{lawyer_name}",
+    "lawyer_email": "{lawyer_email}",
+    "customer_name": "{customer_name}",
+    "customer_email": "{customer_email}",
+    "customer_phone": "{customer_phone}",
+    "action_buttons": {}
+  }
+}

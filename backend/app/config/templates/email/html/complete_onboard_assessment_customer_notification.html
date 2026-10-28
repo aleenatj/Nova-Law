@@ -1,0 +1,23 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Engage Invitation</h2>
+<p>Hi {{ customer_name | default('Customer') }}</p>
+
+<p>We’ve received your payment to secure your Nova Initial Consultation with your chosen Nova Expert.</p>
+
+<p>You can now begin Nova Engage - an in-depth, AI-guided experience designed to help you get the most out of your Nova Initial Consultation with your Nova Expert.</p>
+<p>Completing Nova Engage usually takes 30-45 minutes but you can take your time, save your progress, and return whenever you need.</p>
+<p>It is important to take your time completing Nova Engage. Your situation is unique so Nova Engage will adapt its questions to your circumstances.  Think of it as a structured, AI-guided set of questions - providing an opportunity to reflect on your situation and what’s really important to you.</p>
+<p>Your investment of time providing this information allows your Nova Expert to fully prepare for your Nova Initial Consultation.</p>
+<p>Nothing moves forward until you’re ready.</p>
+
+<div class="text-center">
+    <!-- <a href="{{ engage_url | default('#') }}" class="btn">Start Nova Engage</a><br>
+    <a href="{{ engage_url | default('#') }}" class="link">{{engage_url}}</a><br> -->
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+
+{% endblock %}

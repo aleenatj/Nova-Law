@@ -1,0 +1,32 @@
+{
+    "4": {
+        "versions": {
+            "1": {
+                "options_relationships": {
+                    "yes_court_proceedings": ["7"]
+                },
+                "type": "single"
+            }
+        }
+    },
+    "6": {
+        "versions": {
+            "1": {
+                "options_relationships": {
+                    "other": ["12"]
+                },
+                "type": "single"
+            }
+        }
+    },
+    "13": {
+        "versions": {
+            "1": {
+                "options_relationships": {
+                    "other": ["14"]
+                },
+                "type": "single"
+            }
+        }
+    }
+}

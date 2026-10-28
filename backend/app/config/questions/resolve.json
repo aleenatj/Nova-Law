@@ -1,0 +1,871 @@
+{
+  "1": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "What should we call you?",
+        "description": "This helps us personalise your recommendation.",
+        "placeholder": "First name",
+        "question": "First name",
+        "options": [],
+        "required": true,
+        "input_type": "text",
+        "min_length": 1,
+        "max_length": 100,
+        "rules": [],
+        "question_order": 7,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "2": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "About your partner",
+        "description": "We will not contact your partner - having their name just allows us to make this a more personal experience for you.",
+        "placeholder": "Your partner's first name",
+        "question": "Your partner's first name.",
+        "options": [],
+        "required": true,
+        "input_type": "text",
+        "min_length": 1,
+        "max_length": 100,
+        "rules": [],
+        "question_order": 8,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "3": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Length of relationship",
+        "description": "How long have you been in a relationship with your partner? How many years, approximately?",
+        "placeholder": "Number of years",
+        "question": "How long have you been in a relationship with your partner? How many years, approximately?",
+        "options": [],
+        "required": false,
+        "input_type": "number",
+        "max_length": 99,
+        "rules": [],
+        "question_order": 3,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "4": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Relationship type",
+        "description": "Which option best describes your relationship? If you are now separated from your partner please select the option that best describes the status of the relationship when you were together.",
+        "placeholder": "",
+        "question": "If you are now separated from your partner please select the option that best describes the status of the relationship when you were together.",
+        "options": [
+          {
+            "marriage": {
+              "value": "Marriage or Civil Partnership"
+            },
+            "living_together": {
+              "value": "Co-habitation (living together)"
+            },
+            "other": {
+              "value": "Other"
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 1,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "23": {
+        "versions": {
+            "1": {
+                "question_type": "conditional",
+                "variant": "child",
+                "title": "",
+                "description": "",
+                "placeholder": "Please enter relationship type",
+                "question": "",
+                "options": [],
+                "required": false,
+                "input_type": "text",
+                "max_length": 50,
+                "rules": [
+                    {
+                        "identifier": "4",
+                        "operator": "in",
+                        "value": ["other"]
+                    }
+                ],
+                "question_order": 2,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+  },
+  "5": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "How can we help?",
+        "description": "What do you and your partner need help with? Please choose the relevant options.",
+        "question": "What do you and your partner need help with? Please choose the relevant one or more options.",
+        "options": [
+          {
+            "children": {
+              "value": "Our Children"
+            },
+            "finance": {
+              "value": "Our Finances"
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "checkbox",
+        "rules": [],
+        "question_order": 4,
+        "answer_type": "selected_options",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "6": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Court proceedings",
+        "description": "Are there current court proceedings between you and your partner? Choose the option that best fits your circumstances.",
+        "question": "Are there current court proceedings between you and your partner? Choose the option that best fits your circumstances.",
+        "options": [
+          {
+            "no_court_proceedings": {
+              "value": "We are not in court",
+              "lawyer_value": "You and your partner are not in court",
+              "additional_title": "It's good news you are not in court",
+              "additional_description": "That is good news, let’s try to keep it that way. In any event, you cannot go to court until you have explored less stressful and expensive alternatives. We will help you identify these options. Whilst the family court performs a valuable function it should be reserved for high conflict, complex cases."
+            },
+            "court_proceedings_in_court": {
+              "value": "We are in court",
+              "lawyer_value": "You and your partner are in court",
+              "additional_title": "There may still be easier ways to resolve things",
+              "additional_description": "We are sorry you are in court proceedings. The family court is sometimes an appropriate way to resolve matters. However, judges and lawyers are now required to see if less stressful and expensive alternatives to court may assist you. We will help you identify the best fit from these alternatives."
+            },
+            "court_proceedings_away_from_court": {
+              "value": "We are in court but the judge has ordered us to consider alternatives away from court",
+              "lawyer_value": "They are in court but the judge has ordered them to consider alternatives away from court",
+              "additional_title": "There may still be easier ways to resolve things",
+              "additional_description": "We are sorry you are in court proceedings. The family court is sometimes an appropriate way to resolve matters. However, judges and lawyers are now required to see if less stressful and expensive alternatives to court may assist you. We will help you identify the best fit from these alternatives."
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 5,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "7": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "child",
+        "title": "",
+        "description": "",
+        "question": "What stage of the court process have you reached? Please choose the relevant option from below.",
+        "options": [
+          {
+            "early_stage": {
+              "value": "Early Stage",
+              "tooltip": "Early Stage - You are awaiting a first hearing or have just finished a first hearing."
+            },
+            "mid_stage": {
+              "value": "Mid Stage",
+              "tooltip": "Mid Stage - You have had several hearings but a final hearing or trial is some way off."
+            },
+            "late_stage": {
+              "value": "Late Stage",
+              "tooltip": "Late Stage - You have been in court for many months and the next step is a final hearing or trial."
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [
+          {
+            "identifier": "6",
+            "operator": "in",
+            "value": [
+              "court_proceedings_in_court",
+              "court_proceedings_away_from_court"
+            ]
+          }
+        ],
+        "question_order": 6,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "8": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Relationship communication",
+        "description": "How would you describe the general level of communication between you and {partner_name} during the relationship?",
+        "question": "How would you describe the general level of communication between you and {partner_name} during the relationship?",
+        "options": [
+          {
+            "very_good": {
+              "value": "Very good",
+              "tooltip": "We have consistently been able to communicate each other respectfully even on very difficult subjects and even when we have strongly disagreed.",
+              "score": 5
+            },
+            "good": {
+              "value": "Good",
+              "tooltip": "We have been able to communicate well most of the time although we knew that some subjects were best avoided.",
+              "score": 4
+            },
+            "sometimes_good": {
+              "value": "Sometimes good",
+              "tooltip": "Our communication has been hit and miss - sometimes we could be open with each other and at other times things felt very strained",
+              "score": 3
+            },
+            "misunderstandings": {
+              "value": "Communication between us often seemed to lead to misunderstandings",
+              "tooltip": "We struggled to say the right thing to each other - almost like we were speaking different languages at times.",
+              "score": 2
+            },
+            "did_not_communicate": {
+              "value": "We did not communicate at all",
+              "tooltip": "We found it impossible to communicate, every discussion became an argument so we stopped trying.",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 9,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "9": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Decision making",
+        "description": "Please explain how decisions were made during your relationship.",
+        "question": "Please explain how decisions were made during your relationship?",
+        "options": [
+          {
+            "discussed_all_matters": {
+              "value": "We discussed all matters before making a decision",
+              "score": 5
+            },
+            "i_made_some_partner_made_others": {
+              "value": "I made some of the decisions and {partner_name} made others",
+              "score": 4
+            },
+            "we_did_not_discuss_things": {
+              "value": "We didn't discuss things, I was comfortable letting {partner_name} make the decisions",
+              "score": 3
+            },
+            "i_made_all_the_decisions": {
+              "value": "I made all the decisions",
+              "score": 2
+            },
+            "partner_did_not_allow": {
+              "value": "{partner_name} did not allow me to make any of the decisions",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 10,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "10": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Conflict",
+        "description": "How have you and {partner_name} dealt with conflict in the past? Select the description that seems most relevant.",
+        "question": "How have you and {partner_name} dealt with conflict in the past? Select the description that seems most relevant.",
+        "options": [
+          {
+            "amicably_and_respectfully": {
+              "value": "Amicably and respectfully",
+              "score": 5
+            },
+            "reached_agreement_eventually": {
+              "value": "We reached agreement eventually without too much difficulty",
+              "score": 4
+            },
+            "sometimes_reached_sometimes_not": {
+              "value": "Sometimes we would reach agreement and sometimes we would end up shouting at each other",
+              "score": 3
+            },
+            "tends_to_get_heard": {
+              "value": "One of us tends to get heard more than the other",
+              "score": 2
+            },
+            "shouting_at_each_other": {
+              "value": "Both of us end up shouting at each other",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 11,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "11": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Current communication",
+        "description": "What is the current level of communication between you and {partner_name}. What would it be like if you were in the same room together?",
+        "question": "What is the current level of communication between you and {partner_name}. What would it be like if you were in the same room together?",
+        "options": [
+          {
+            "very_good": {
+              "value": "Very good",
+              "tooltip": "We are consistently able to communicate respectfully even on very difficult subjects and even when we strongly disagree",
+              "score": 5
+            },
+            "good": {
+              "value": "Good",
+              "tooltip": "We are able to communicate well most of the time although we know that some subjects are best avoided.",
+              "score": 4
+            },
+            "not_so_good": {
+              "value": "Not so good",
+              "tooltip": "Our communication is hit and miss - sometimes we can be open with each other and at other times things feel very strained",
+              "score": 3
+            },
+            "very_challenging": {
+              "value": "Very challenging",
+              "tooltip": "We struggle to say the right thing to each other - almost like we are speaking different languages at times.",
+              "score": 2
+            },
+            "impossible": {
+              "value": "Impossible",
+              "tooltip": "We find it impossible to communicate, every discussion becomes an argument so we stopped trying.",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 12,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "12": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Financial control",
+        "description": "How were finances managed during your relationship?",
+        "question": "How were finances managed during your relationship?",
+        "options": [
+          {
+            "joint_financial_control": {
+              "value": "We exercised joint financial control over all aspects of our relationship",
+              "score": 5
+            },
+            "different_responsibilities": {
+              "value": "We tended to have different responsibilities in the management of our finances",
+              "score": 4
+            },
+            "i_had_control": {
+              "value": "I was the one who had control over the management of our finances",
+              "score": 3
+            },
+            "i_usually_asked_partner": {
+              "value": "I usually asked {partner_name} if I could make any purchases or cash withdrawals and we would discuss it",
+              "score": 2
+            },
+            "partner_controlled_all_aspects": {
+              "value": "{partner_name} controlled all aspects of our finances including making any purchases or cash withdrawals without consulting me",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 13,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "13": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Affordability",
+        "description": "What is your approximate annual income before tax? Include earnings and state benefits.<br><h5 class='text-[15px] sm:text-[17px] mt-2'>You may wonder why we ask this question, {name}. Some dispute resolution models are more affordable than others, and some, dependent on income, may be covered by Legal Aid. We want to tailor our guidance to your circumstances. Equally, we want to be sure we are helping people from every walk of society.</h5>",
+        "question": "What is your approximate annual income before tax? Include earnings and state benefits.",
+        "options": [
+          {
+            "less_than_15k": {
+              "value": "Less than £15,000"
+            },
+            "between_15k_and_25k": {
+              "value": "Between £15,000 and £25,000"
+            },
+            "between_25k_and_40k": {
+              "value": "Between £25,001 and £40,000"
+            },
+            "between_40k_and_75k": {
+              "value": "Between £40,001 and £75,000"
+            },
+            "greater_than_75k": {
+              "value": "Greater than £75,000"
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 14,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "22": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Your Financial Picture",
+        "description": "To help us better understand the overall financial situation and provide appropriate guidance, please indicate the approximate net <span style=\"position:relative; cursor:pointer; text-decoration:underline;\" onmouseover=\"this.children[0].style.display='block'\" onmouseout=\"this.children[0].style.display='none'\">assets<span style=\"display: none; position: absolute; z-index: 50; width: 16rem; max-width: calc(100vw - 2rem); padding: 0.5rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--nova-neutral-500); background: #fff; border-radius: var(--radius); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); bottom: 100%; margin-bottom: 0.25rem; white-space: normal;\">This includes the family home, savings, investments, property, and trusts minus the mortgage and other any debts</span></span> collectively held by you and {partner_name}. You do not need to calculate an exact figure-<em>an estimate is sufficient.</em><br><br>Some dispute resolution pathways are <strong>more affordable </strong> than others and we want to make sure our recommendation will be a good fit for your financial circumstances",
+        "question": "To help us better understand the overall financial situation and provide appropriate guidance, please indicate the approximate net <span style=\"position:relative; cursor:pointer; text-decoration:underline;\" onmouseover=\"this.children[0].style.display='block'\" onmouseout=\"this.children[0].style.display='none'\">assets<span style=\"display: none; position: absolute; z-index: 50; width: 16rem; max-width: calc(100vw - 2rem); padding: 0.5rem; font-size: 0.875rem; line-height: 1.25rem; color: var(--nova-neutral-500); background: #fff; border-radius: var(--radius); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); bottom: 100%; margin-bottom: 0.25rem; white-space: normal;\">This includes the family home, savings, investments, property, and trusts minus the mortgage and other any debts</span></span> collectively held by you and {partner_name}. You do not need to calculate an exact figure-<em>an estimate is sufficient.</em><br><br>Some dispute resolution pathways are <strong>more affordable </strong> than others and we want to make sure our recommendation will be a good fit for your financial circumstances",
+        "options": [
+          {
+            "less_than_100k": {
+              "value": "Less than £100,000"
+            },
+            "between_100k_and_300k": {
+              "value": "£100,000 to £300,000"
+            },
+            "between_300k_and_700k": {
+              "value": "£300,000 to £700,000"
+            },
+            "between_700k_and_1m": {
+              "value": "£700,000 to £1.5 million"
+            },
+            "between_1.5m_and_3m": {
+              "value": "£1.5 million to £3 million"
+            },
+            "more_than_3m": {
+              "value": "More than £3 million"
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 15,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "14": {
+    "versions": {
+      "1": {
+        "question_type": "conditional",
+        "variant": "parent",
+        "title": "Children complexity",
+        "description": "Are any of the following features relevant to your children? Select any that apply. Skip this question if none of the features are relevant.",
+        "question": "Are any of the following features relevant to your children? Select any that apply. Skip this question if none of the features are relevant.",
+        "options": [
+          {
+            "disability_or_physical": {
+              "value": "Disability or physical/mental health"
+            },
+            "police_or_social_services": {
+              "value": "Police or Social Services involvement"
+            },
+            "child_abduction": {
+              "value": "Child abduction"
+            },
+            "relocation_within": {
+              "value": "Relocation of children within England & Wales"
+            },
+            "relocation_outside": {
+              "value": "Relocation of children outside England & Wales"
+            }
+          }
+        ],
+        "required": false,
+        "input_type": "checkbox",
+        "rules": [
+          {
+            "identifier": "5",
+            "operator": "is",
+            "value": "children"
+          }
+        ],
+        "question_order": 16,
+        "answer_type": "selected_options",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "15": {
+    "versions": {
+      "1": {
+        "question_type": "conditional",
+        "variant": "parent",
+        "title": "Child arrangements",
+        "description": "Are you aware of all the choices available to sort out child arrangements? Such as ‘bird-nesting’, the role of contact centres or parenting courses, or even whether the views of your children could be gathered by a child-inclusive mediator?",
+        "question": "Are you aware of all the choices available to sort out child arrangements? Such as ‘bird-nesting’, the role of contact centres or parenting courses, or even whether the views of your children could be gathered by a child-inclusive mediator?",
+        "options": [
+          {
+            "yes": {
+              "value": "Yes, I am",
+              "score": 5
+            },
+            "yes_some": {
+              "value": "Yes, some of them",
+              "score": 3
+            },
+            "no": {
+              "value": "No, not really",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [
+          {
+            "identifier": "5",
+            "operator": "is",
+            "value": "children"
+          }
+        ],
+        "question_order": 17,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "16": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Warning signs",
+        "description": "Has {partner_name} been involved in any of the following activities? Select any that apply. Skip this question if none of the features are relevant.",
+        "question": "Has {partner_name} been involved in any of the following activities? Select any that apply. Skip this question if none of the features are relevant.",
+        "options": [
+          {
+            "domestic_abuse": {
+              "value": "Domestic abuse or coercive control",
+              "lawyer_value": "Domestic abuse or coercive control",
+              "additional_title": "Thank you for sharing this information",
+              "additional_description": "{name}, we appreciate it must be difficult for you. Our service, including your responses and any communication with our team is entirely confidential. If you feel in any immediate danger you should phone 999 for the police."
+            },
+            "spending_expenses": {
+              "value": "Dishonesty with regards to spending/expenses",
+              "lawyer_value": "Dishonesty with regards to spending/expenses"
+            },
+            "hiding_money": {
+              "value": "Hiding money or assets from you or a previous partner",
+              "lawyer_value": "Hiding money or assets from {customer_name} or a previous partner"
+            },
+            "questionable_business": {
+              "value": "Questionable business practices",
+              "lawyer_value": "Questionable business practices"
+            },
+            "tax_evasion": {
+              "value": "Tax evasion",
+              "lawyer_value": "Tax evasion"
+            },
+            "stealing_money": {
+              "value": "Stealing money",
+              "lawyer_value": "Stealing money"
+            }
+          }
+        ],
+        "required": false,
+        "input_type": "checkbox",
+        "rules": [],
+        "question_order": 18,
+        "answer_type": "selected_options",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "17": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Comfortable being in the same room",
+        "description": "Are you comfortable being in the same room as {partner_name}? Some of the dispute resolution options have a couple in the same room as each other. But some do not. It is important to think about whether you would feel comfortable, or even safe, being in the same room. It might make a difference if there is support from a professional in the room.",
+        "question": "Are you comfortable being in the same room as {partner_name}?",
+        "options": [
+          {
+            "yes": {
+              "value": "Yes",
+              "lawyer_value": "Yes",
+              "score": 5
+            },
+            "may_feel": {
+              "value": "I may feel comfortable depending on the support in the room",
+              "lawyer_value": "{customer_name} may feel comfortable depending on the support in the room",
+              "score": 3
+            },
+            "no": {
+              "value": "No",
+              "lawyer_value": "No",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 19,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "18": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Confidence",
+        "description": "How confident are you negotiating with {partner_name} to sort out the relationship issues?",
+        "question": "How confident are you negotiating with {partner_name} to sort out the relationship issues?",
+        "options": [
+          {
+            "very_confident": {
+              "value": "I am very confident I can negotiate directly with {partner_name}",
+              "lawyer_value": "{customer_name} is very confident {subject_pronoun} can negotiate directly with {partner_name}",
+              "score": 5
+            },
+            "confident": {
+              "value": "I am confident I would be able negotiate directly with {partner_name} if I had some advice from a professional",
+              "lawyer_value": "{customer_name} is confident {subject_pronoun} would be able to negotiate directly with {partner_name} if {subject_pronoun} had some advice from a professional.",
+              "score": 4
+            },
+            "moderately_confident": {
+              "value": "I am moderately confident but I am afraid {partner_name} will mislead me",
+              "lawyer_value": "{customer_name} is moderately confident but is afraid {partner_name} will mislead {object_pronoun}",
+              "score": 3
+            },
+            "not_confident": {
+              "value": "I am not confident because I am worried {partner_name} will take control of the negotiation",
+              "lawyer_value": "{customer_name} is not confident because {subject_pronoun} {be_verb} worried {partner_name} will take control of the negotiation",
+              "score": 2
+            },
+            "not_confident_at_all": {
+              "value": "I am not confident at all - I find the prospect overwhelming",
+              "lawyer_value": "{customer_name} is not confident at all and finds the prospect overwhelming",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [],
+        "question_order": 20,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "19": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Financial complexity",
+        "description": "Are any of the following features relevant to your relationship? Select any that apply. Skip this question if none of the features are relevant.",
+        "question": "Are any of the following features relevant to your relationship? Select any that apply. Skip this question if none of the features are relevant.",
+        "options": [
+          {
+            "assets_brought": {
+              "value": "You or {partner_name} brought assets into the relationship",
+              "lawyer_value": "{customer_name} or {partner_name} brought assets into the relationship"
+            },
+            "pre_nuptial_post_nuptial": {
+              "value": "Pre-nuptial or post-nuptial agreements",
+              "lawyer_value": "Pre-nuptial or post-nuptial agreements"
+            },
+            "disability_health": {
+              "value": "Disability or significant health issues",
+              "lawyer_value": "Disability or significant health issues"
+            },
+            "business_assets": {
+              "value": "Business assets",
+              "lawyer_value": "Business assets"
+            },
+            "pensions": {
+              "value": "Trusts",
+              "lawyer_value": "Trusts"
+            },
+            "assets_abroad": {
+              "value": "Overseas Assets or Pensions",
+              "lawyer_value": "Overseas Assets or Pensions"
+            },
+            "inherited_assets": {
+              "value": "Inherited assets",
+              "lawyer_value": "Inherited assets"
+            },
+            "third_party_interests": {
+              "value": "Third party interests in our assets",
+              "lawyer_value": "Third party interests in their assets"
+            }
+          }
+        ],
+        "required": false,
+        "input_type": "checkbox",
+        "rules": [
+          {
+            "identifier": "5",
+            "operator": "is",
+            "value": "finance"
+          }
+        ],
+        "question_order": 21,
+        "answer_type": "",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "20": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Financial awareness",
+        "description": "Are you aware of all the choices available to sort out the finances in the relationship? Such as the selling, sharing or transferring of certain types of assets or perhaps working out how you and {partner_name} deal with maintenance payments or pension arrangements.",
+        "question": "Are you aware of all the choices available to sort out the finances in the relationship? Such as the selling, sharing or transferring of certain types of assets or perhaps working out how you and {partner_name} deal with maintenance payments or pension arrangements.",
+        "options": [
+          {
+            "yes": {
+              "value": "Yes, I am",
+              "score": 5
+            },
+            "yes_some": {
+              "value": "Yes, some of them",
+              "score": 3
+            },
+            "no": {
+              "value": "No, not really",
+              "score": 1
+            }
+          }
+        ],
+        "required": true,
+        "input_type": "radio",
+        "rules": [
+          {
+            "identifier": "5",
+            "operator": "is",
+            "value": "finance"
+          }
+        ],
+        "question_order": 22,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  },
+  "21": {
+    "versions": {
+      "1": {
+        "question_type": "non-conditional",
+        "variant": "parent",
+        "title": "Thanks for your responses",
+        "description": "We're now ready to assess your situation {name} and recommend your next steps forward.<br><br>To continue, please enter your email address below so that we can setup a Nova account for you - this will safely save your recommendations for you to access any time.",
+        "placeholder": "Email address",
+        "question": "Email address",
+        "options": [],
+        "required": true,
+        "input_type": "email",
+        "min_length": 1,
+        "max_length": 255,
+        "rules": [],
+        "question_order": 23,
+        "answer_type": "value",
+        "answer": []
+      }
+    },
+    "question_status": "Active"
+  }
+}

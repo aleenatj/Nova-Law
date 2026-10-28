@@ -1,0 +1,273 @@
+{
+    "1": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "Your free call is booked. To help you get the most from it, please answer a few short questions about your situation. This will help the Nova team prepare and should take no more than two or three minutes.",
+                "description": "",
+                "placeholder": "",
+                "question": "How can we help you today?",
+                "options": [
+                    {
+                        "speak_or_help_family_law_professional": "I’m ready to speak to a family law professional about my situation."
+                    },
+                    {
+                        "help_with_ongoing_family_law_case": "I need help with an ongoing family law case"
+                    },
+                    {
+                        "help_to_find_the_right_family_law_professional": "I want help to find the right family law professional for my situation"
+                    },
+                    {
+                        "not_sure": "I’m not sure, I’m exploring my options."
+                    }
+                ],
+                "required": true,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 1,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "2": {
+        "versions": {
+            "1": {
+                "question_type": "conditional",
+                "variant": "child",
+                "title": "",
+                "description": "",
+                "placeholder": "<ul><li>e.g. I'm worried about what will happen to our home.</li><li>e.g. We've already started mediation and aren't sure what to do next.</li><li>e.g. My situation is urgent because...</li></ul>",
+                "question": "Share any details that you think might help us better understand your situation",
+                "options": [],
+                "required": false,
+                "input_type": "textarea",
+                "rules": [
+                    {
+                        "identifier": "1",
+                        "operator": "in",
+                        "value": ["speak_or_help_family_law_professional", "help_with_ongoing_family_law_case", "help_to_find_the_right_family_law_professional"]
+                    }
+                ],
+                "question_order": 5,
+                "max_length": 500,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "6": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "If you decide to proceed after your free call, we normally arrange a consultation with a family law professional within four working days. Do any of the following mean you need help sooner?<br>If not, select Skip.",
+                "options": [
+                    {
+                        "immediate_risk_to_me_or_my_children": "There is an immediate risk to me or my children."
+                    },
+                    {
+                        "court_hearing_next_7_to_10_days": "I have a court hearing within the next 7 to 10 days."
+                    },
+                    {
+                        "serious_financial_misconduct": "There is serious financial misconduct that must be stopped."
+                    },
+                    {
+                        "child_relocation_issue": "I have an immediate international child relocation issue"
+                    },
+                    {
+                        "some_other": "Some other family law issue that requires urgent attention"
+                    }
+                ],
+                "required": false,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 10,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "8": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "Do you have a solicitor or other family law professional advising you?",
+                "options": [
+                    {
+                        "no": "No, I do not have a family law professional advising me"
+                    },
+                    {
+                        "no_had_initial_advice": "No, I just had some initial advice"
+                    },
+                    {
+                        "yes_second_opinion": "Yes, but I am looking for a second opinion"
+                    },
+                    {
+                        "yes_change_family_law_professional": "Yes, but I want to change my family law professional"
+                    },
+                    {
+                        "yes_mediation_breaking_down": "We are in mediation or have tried it without resolving things."
+                    }
+                ],
+                "required": true,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 15,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "4": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "What is your approximate annual income before tax? Include earnings and state benefits.",
+                "options": [
+                    {
+                        "less_than_25000": "Less than £25,000"
+                    },
+                    {
+                        "25001_to_40000": "£25,001 to £40,000"
+                    },
+                    {
+                        "40001_to_75000": "£40,001 to £75,000"
+                    },
+                    {
+                        "75001_to_150000": "£75,001 to £150,000"
+                    },
+                    {
+                        "greater_than_150000": "Greater than £150,000"
+                    }
+                ],
+                "required": true,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 20,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "5": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "To help us better understand the overall financial situation and provide appropriate guidance, please indicate the approximate net assets collectively held by you and your partner. You do not need to calculate an exact figure-an estimate is sufficient.",
+                "options": [
+                    {
+                        "less_than_100000": "Less than £100,000"
+                    },
+                    {
+                        "100000_to_300000": "£100,000 to £300,000"
+                    },
+                    {
+                        "300000_to_700000": "£300,000 to £700,000"
+                    },
+                    {
+                        "700000_to_1.5_million": "£700,000 to £1.5 million"
+                    },
+                    {
+                        "1.5_million_to_3_million": "£1.5 million to £3 million"
+                    },
+                    {
+                        "more_than_3_million": "More than £3 million"
+                    }
+                ],
+                "default": "no",
+                "required": true,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 25,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "7": {
+        "versions": {
+            "1": {
+                "question_type": "conditional",
+                "variant": "child",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "you can share your family issues here",
+                "options": [],
+                "required": true,
+                "input_type": "textarea",
+                "rules": [
+                    {
+                        "identifier": "6",
+                        "operator": "in",
+                        "value": ["some_other"]
+                    }
+                ],
+                "question_order": 30,
+                "max_length": 500,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    },
+    "3": {
+        "versions": {
+            "1": {
+                "question_type": "non-conditional",
+                "variant": "parent",
+                "title": "",
+                "description": "",
+                "placeholder": "",
+                "question": "Which one of the following best describes what would leave you feeling most satisfied with the outcome? ",
+                "options": [
+                    {
+                        "preserve_or_improve_family_relationships": "I want to preserve, or where possible improve, our family relationships."
+                    },
+                    {
+                        "both_accept_solution": "I mainly want to find a solution we can both accept."
+                    },
+                    {
+                        "want_a_fair_outcome": "I want a fair outcome that I can live with, even if neither of us gets everything we want."
+                    },
+                    {
+                        "know_my_position_has_been_recognised": "I need to know that my position has been recognised as right."
+                    },
+                    {
+                        "need_to_achieve_best_possible_outcome": "I need to achieve the best possible outcome for me."
+                    }
+                ],
+                "required": true,
+                "input_type": "radio",
+                "rules": [],
+                "question_order": 35,
+                "answer_type": "value",
+                "answer": []
+            }
+        },
+        "question_status": "Active"
+    }
+}

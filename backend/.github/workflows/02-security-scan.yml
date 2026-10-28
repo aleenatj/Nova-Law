@@ -1,0 +1,60 @@
+name: Security Scan (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: "3.13"
+    outputs:
+      security-scan-success:
+        description: "Result of security scan"
+        value: ${{ jobs.security-scan.outputs.success }}
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security Scan
+    outputs:
+      success: ${{ steps.scan-status.outputs.success }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.create true
+        poetry config virtualenvs.in-project false
+
+    - name: Install dependencies
+      run: |
+        poetry install --with dev
+
+    - name: Run security scan
+      run: |
+        poetry run bandit -r app/  -ll
+
+    - name: Set scan status
+      id: scan-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT
+        echo "✅ Security scan completed"
+
+    - name: Upload security report
+      uses: actions/upload-artifact@v4
+      with:
+        name: bandit-report
+        path: bandit-report.json
+        retention-days: 10

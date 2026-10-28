@@ -1,0 +1,621 @@
+/* @font-face {
+  font-family: 'Neue Haas Grotesk Display Pro Roman';
+  src: url('/fonts/NeueHaasDisplayRoman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Display Pro Medium';
+  src: url('/fonts/NeueHaasDisplayMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Perfectly Nineties Regular';
+  src: url('/fonts/PerfectlyNineties-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Perfectly Nineties Italic';
+  src: url('/fonts/PerfectlyNineties-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+} */
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Display Pro';
+  src: url('/fonts/NeueHaasDisplayRoman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Display Pro';
+  src: url('/fonts/NeueHaasDisplayMediu.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Perfectly Nineties';
+  src: url('/fonts/PerfectlyNineties-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Perfectly Nineties';
+  src: url('/fonts/PerfectlyNineties-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+
+    /* Legal Platform Colors (Hex Codes) */
+    --nova-black: #07161E;
+    --legal-navy: #22337a;
+    --legal-blue: #2250d6;
+    --legal-theme-color: #26262e;
+    --legal-light-blue: #3a8fff;
+    --legal-slate: #555c6a;
+    --legal-gold: #ffc43a;
+    --legal-accent: #a855f7;
+    --legal-caution: #ef4444;
+    --legal-alert: #f97316;
+    --legal-warning: #eab308;
+    --legal-neutral: #404247;
+    --legal-success: #22c55e;
+    --legal-gray: #4b5563;
+    --legal-muted-gray: #78716c;
+    --legal-muted-slate: #4b5563;
+    --legal-purple: #9333ea;
+    --legal-purple-light: #faf5ff;
+    --legal-text-gray: #4b5563;
+    --legal-violet: #4f46e5;
+    --legal-violet-background: #eef2ff;
+
+    --nova-purple-20: color-mix(in srgb, var(--legal-purple) 2%, white);
+    --nova-purple-50: color-mix(in srgb, var(--legal-purple) 5%, white);
+    --nova-purple-100: color-mix(in srgb, var(--legal-purple) 10%, white);
+    --nova-purple-200: color-mix(in srgb, var(--legal-purple) 20%, white);
+    --nova-purple-300: color-mix(in srgb, var(--legal-purple) 30%, white);
+    --nova-purple-400: color-mix(in srgb, var(--legal-purple) 40%, white);
+    --nova-purple-500: var(--legal-purple);
+    --nova-purple-600: color-mix(in srgb, var(--legal-purple) 80%, black);
+    --nova-purple-700: color-mix(in srgb, var(--legal-purple) 60%, black);
+    --nova-purple-800: color-mix(in srgb, var(--legal-purple) 80%, black);
+    --nova-purple-900: color-mix(in srgb, var(--legal-purple) 90%, black);
+    --nova-purple-950: color-mix(in srgb, var(--legal-purple) 95%, black);
+
+    --nova-blue-20: color-mix(in srgb, var(--legal-blue) 2%, white);
+    --nova-blue-50: color-mix(in srgb, var(--legal-blue) 5%, white);
+    --nova-blue-100: color-mix(in srgb, var(--legal-blue) 10%, white);
+    --nova-blue-200: color-mix(in srgb, var(--legal-blue) 20%, white);
+    --nova-blue-300: color-mix(in srgb, var(--legal-blue) 30%, white);
+    --nova-blue-400: color-mix(in srgb, var(--legal-blue) 40%, white);
+    --nova-blue-500: var(--legal-blue);
+    --nova-blue-600: color-mix(in srgb, var(--legal-blue) 80%, black);
+    --nova-blue-700: color-mix(in srgb, var(--legal-blue) 60%, black);
+    --nova-blue-800: color-mix(in srgb, var(--legal-blue) 80%, black);
+    --nova-blue-900: color-mix(in srgb, var(--legal-blue) 90%, black);
+    --nova-blue-950: color-mix(in srgb, var(--legal-blue) 95%, black);
+
+    /* Nova Violet Color Shades (auto-generated from --legal-violet) */
+    --nova-violet-50: color-mix(in srgb, var(--legal-violet) 10%, white);
+    --nova-violet-100: color-mix(in srgb, var(--legal-violet) 20%, white);
+    --nova-violet-200: color-mix(in srgb, var(--legal-violet) 30%, white);
+    --nova-violet-300: color-mix(in srgb, var(--legal-violet) 50%, white);
+    --nova-violet-400: color-mix(in srgb, var(--legal-violet) 70%, white);
+    --nova-violet-500: var(--legal-violet);
+    --nova-violet-600: color-mix(in srgb, var(--legal-violet) 80%, black);
+    --nova-violet-700: color-mix(in srgb, var(--legal-violet) 60%, black);
+    --nova-violet-800: color-mix(in srgb, var(--legal-violet) 80%, black);
+    --nova-violet-900: color-mix(in srgb, var(--legal-violet) 90%, black);
+    --nova-violet-950: color-mix(in srgb, var(--legal-violet) 95%, black);
+
+    /* Nova Gray Color Shades (auto-generated from --legal-gray) */
+    --nova-gray-50: color-mix(in srgb, var(--legal-gray) 5%, white);
+    --nova-gray-100: color-mix(in srgb, var(--legal-gray) 12%, white);
+    --nova-gray-200: color-mix(in srgb, var(--legal-gray) 25%, white);
+    --nova-gray-300: color-mix(in srgb, var(--legal-gray) 40%, white);
+    --nova-gray-400: color-mix(in srgb, var(--legal-gray) 60%, white);
+    --nova-gray-500: var(--legal-gray);
+    --nova-gray-600: color-mix(in srgb, var(--legal-gray) 80%, black);
+    --nova-gray-700: color-mix(in srgb, var(--legal-gray) 60%, black);
+    --nova-gray-800: color-mix(in srgb, var(--legal-gray) 80%, black);
+    --nova-gray-900: color-mix(in srgb, var(--legal-gray) 90%, black);
+    --nova-gray-950: color-mix(in srgb, var(--legal-gray) 95%, black);
+
+    /* Nova Primary Color Shades (auto-generated from --legal-blue) */
+    --nova-primary-50: color-mix(in srgb, var(--legal-theme-color) 10%, white);
+    --nova-primary-100: color-mix(in srgb, var(--legal-theme-color) 20%, white);
+    --nova-primary-200: color-mix(in srgb, var(--legal-theme-color) 30%, white);
+    --nova-primary-300: color-mix(in srgb, var(--legal-theme-color) 50%, white);
+    --nova-primary-400: color-mix(in srgb, var(--legal-theme-color) 70%, white);
+    --nova-primary-500: var(--legal-theme-color);
+    --nova-primary-600: color-mix(in srgb, var(--legal-theme-color) 80%, black);
+    --nova-primary-700: color-mix(in srgb, var(--legal-theme-color) 60%, black);
+    --nova-primary-800: color-mix(in srgb, var(--legal-theme-color) 80%, black);
+    --nova-primary-900: color-mix(in srgb, var(--legal-theme-color) 90%, black);
+    --nova-primary-950: color-mix(in srgb, var(--legal-theme-color) 95%, black);
+
+    /* Nova Neutral Color Shades (based on Tailwind's default gray, using color-mix for dynamic theming) */
+    --nova-neutral-50: color-mix(
+      in srgb,
+      var(--legal-neutral) 5%,
+      white
+    ); /* #f9fafb */
+    --nova-neutral-100: color-mix(
+      in srgb,
+      var(--legal-neutral) 12%,
+      white
+    ); /* #f3f4f6 */
+    --nova-neutral-200: color-mix(
+      in srgb,
+      var(--legal-neutral) 25%,
+      white
+    ); /* #e5e7eb */
+    --nova-neutral-300: color-mix(
+      in srgb,
+      var(--legal-neutral) 40%,
+      white
+    ); /* #d1d5db */
+    --nova-neutral-400: color-mix(
+      in srgb,
+      var(--legal-neutral) 60%,
+      white
+    ); /* #9ca3af */
+    --nova-neutral-500: var(--legal-neutral); /* #6b7280 */
+    --nova-neutral-600: color-mix(
+      in srgb,
+      var(--legal-neutral) 80%,
+      black
+    ); /* #4b5563 */
+    --nova-neutral-700: color-mix(
+      in srgb,
+      var(--legal-neutral) 60%,
+      black
+    ); /* #374151 */
+    --nova-neutral-800: color-mix(
+      in srgb,
+      var(--legal-neutral) 80%,
+      black
+    ); /* #1f2937 */
+    --nova-neutral-900: color-mix(
+      in srgb,
+      var(--legal-neutral) 90%,
+      black
+    ); /* #111827 */
+    --nova-neutral-950: color-mix(
+      in srgb,
+      var(--legal-neutral) 97%,
+      black
+    ); /* #030712 */
+
+    /* Nova Accent Color Shades (auto-generated from --legal-accent) */
+    --nova-accent-50: color-mix(in srgb, var(--legal-accent) 10%, white);
+    --nova-accent-100: color-mix(in srgb, var(--legal-accent) 20%, white);
+    --nova-accent-200: color-mix(in srgb, var(--legal-accent) 30%, white);
+    --nova-accent-300: color-mix(in srgb, var(--legal-accent) 50%, white);
+    --nova-accent-400: color-mix(in srgb, var(--legal-accent) 70%, white);
+    --nova-accent-500: var(--legal-accent);
+    --nova-accent-600: color-mix(in srgb, var(--legal-accent) 80%, black);
+    --nova-accent-700: color-mix(in srgb, var(--legal-accent) 60%, black);
+    --nova-accent-800: color-mix(in srgb, var(--legal-accent) 80%, black);
+    --nova-accent-900: color-mix(in srgb, var(--legal-accent) 90%, black);
+    --nova-accent-950: color-mix(in srgb, var(--legal-accent) 95%, black);
+
+    /* Nova Caution Color Shades (auto-generated from --legal-caution) */
+    --nova-caution-50: color-mix(in srgb, var(--legal-caution) 10%, white);
+    --nova-caution-100: color-mix(in srgb, var(--legal-caution) 20%, white);
+    --nova-caution-200: color-mix(in srgb, var(--legal-caution) 30%, white);
+    --nova-caution-300: color-mix(in srgb, var(--legal-caution) 50%, white);
+    --nova-caution-400: color-mix(in srgb, var(--legal-caution) 70%, white);
+    --nova-caution-500: var(--legal-caution);
+    --nova-caution-600: color-mix(in srgb, var(--legal-caution) 80%, black);
+    --nova-caution-700: color-mix(in srgb, var(--legal-caution) 60%, black);
+    --nova-caution-800: color-mix(in srgb, var(--legal-caution) 80%, black);
+    --nova-caution-900: color-mix(in srgb, var(--legal-caution) 90%, black);
+    --nova-caution-950: color-mix(in srgb, var(--legal-caution) 95%, black);
+
+    /* Nova Alert Color Shades (auto-generated from --legal-alert) */
+    --nova-alert-50: color-mix(in srgb, var(--legal-alert) 10%, white);
+    --nova-alert-100: color-mix(in srgb, var(--legal-alert) 20%, white);
+    --nova-alert-200: color-mix(in srgb, var(--legal-alert) 30%, white);
+    --nova-alert-300: color-mix(in srgb, var(--legal-alert) 50%, white);
+    --nova-alert-400: color-mix(in srgb, var(--legal-alert) 70%, white);
+    --nova-alert-500: var(--legal-alert);
+    --nova-alert-600: color-mix(in srgb, var(--legal-alert) 80%, black);
+    --nova-alert-700: color-mix(in srgb, var(--legal-alert) 60%, black);
+    --nova-alert-800: color-mix(in srgb, var(--legal-alert) 80%, black);
+    --nova-alert-900: color-mix(in srgb, var(--legal-alert) 90%, black);
+    --nova-alert-950: color-mix(in srgb, var(--legal-alert) 95%, black);
+
+    /* Nova Warning Color Shades (auto-generated from --legal-warning) */
+    --nova-warning-50: color-mix(in srgb, var(--legal-warning) 10%, white);
+    --nova-warning-100: color-mix(in srgb, var(--legal-warning) 20%, white);
+    --nova-warning-200: color-mix(in srgb, var(--legal-warning) 30%, white);
+    --nova-warning-300: color-mix(in srgb, var(--legal-warning) 50%, white);
+    --nova-warning-400: color-mix(in srgb, var(--legal-warning) 70%, white);
+    --nova-warning-500: var(--legal-warning);
+    --nova-warning-600: color-mix(in srgb, var(--legal-warning) 80%, black);
+    --nova-warning-700: color-mix(in srgb, var(--legal-warning) 60%, black);
+    --nova-warning-800: color-mix(in srgb, var(--legal-warning) 80%, black);
+    --nova-warning-900: color-mix(in srgb, var(--legal-warning) 90%, black);
+    --nova-warning-950: color-mix(in srgb, var(--legal-warning) 95%, black);
+
+    /* Nova Success Color Shades (auto-generated from --legal-success) */
+    --nova-success-50: color-mix(in srgb, var(--legal-success) 10%, white);
+    --nova-success-100: color-mix(in srgb, var(--legal-success) 20%, white);
+    --nova-success-200: color-mix(in srgb, var(--legal-success) 30%, white);
+    --nova-success-300: color-mix(in srgb, var(--legal-success) 50%, white);
+    --nova-success-400: color-mix(in srgb, var(--legal-success) 70%, white);
+    --nova-success-500: var(--legal-success);
+    --nova-success-600: color-mix(in srgb, var(--legal-success) 80%, black);
+    --nova-success-700: color-mix(in srgb, var(--legal-success) 60%, black);
+    --nova-success-800: color-mix(in srgb, var(--legal-success) 80%, black);
+    --nova-success-900: color-mix(in srgb, var(--legal-success) 90%, black);
+    --nova-success-950: color-mix(in srgb, var(--legal-success) 95%, black);
+
+    /* Success/Completion Colors */
+    --success-50: #f3fcf7;
+    --success-100: #d2f5e6;
+    --success-200: #a6ebcd;
+    --success-600: #249c5b;
+    --success-700: #117a37;
+
+    /* Timeline Card State Colors */
+    --nova-dark-orange: #E8731E;
+    --nova-dark-amber: #F6CF9B;
+    --nova-active: #FFDDB3;
+    --nova-orange: #FF6A42;
+    --nova-red: #FC3C3F;
+    --nova-yellow: #FFCC2D;
+    /* --nova-inactive: #FAF7EE; */
+    --nova-inactive: #FAF7EE;
+
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    letter-spacing: 0.5px;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Neue Haas Grotesk Display Pro";
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.gradient-incomplete-border {
+  position: relative;
+  border-radius: 18px;
+}
+
+.gradient-incomplete-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px; /* border thickness */
+
+  /* Figma gradient */
+  background: linear-gradient(180deg, #FF6A42 0%, #FFB457 100%);
+
+  /* Mask out inner area leaving just border */
+  -webkit-mask:
+  radial-gradient(120px at 0% 30%, transparent 90px, black 120px),
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* Remove the ENTIRE LEFT BORDER */
+  mask:
+    linear-gradient(to right,  transparent 200px, black 18px),
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: intersect, exclude;
+
+  z-index: 0;
+  display: none; /* Hide by default on small screens */
+}
+
+/* Show border only on md screens and above */
+@media (min-width: 768px) {
+  .gradient-incomplete-border::before {
+    display: block;
+  }
+}
+
+
+@layer components {
+  .timeline-card-border {
+    border-radius: .5rem;
+    /* box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2); */
+  }
+  .summary-card-border {
+    border-radius: .5rem;
+    /* box-shadow: 0 2px 10px #0000006b; */
+    /* box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2); */
+  }
+}
+
+/* Legal Platform Color Utilities */
+.bg-legal-navy {
+  background-color: var(--legal-navy);
+}
+
+.bg-legal-blue {
+  background-color: var(--legal-blue);
+}
+
+.bg-legal-light-blue {
+  background-color: var(--legal-light-blue);
+}
+
+.bg-legal-violet {
+  background-color: var(--legal-violet);
+}
+
+.bg-legal-violet-dark {
+  background-color: var(--legal-violet-dark);
+}
+
+.text-legal-navy {
+  color: var(--legal-navy);
+}
+
+.text-legal-blue {
+  color: var(--legal-blue);
+}
+
+.text-legal-slate {
+  color: var(--legal-slate);
+}
+
+.text-legal-violet {
+  color: var(--legal-violet);
+}
+
+.text-legal-violet-dark {
+  color: var(--legal-violet-dark);
+}
+
+.border-legal-blue {
+  border-color: var(--legal-blue);
+}
+
+.border-legal-violet {
+  border-color: var(--legal-violet);
+}
+
+.border-legal-violet-dark {
+  border-color: var(--legal-violet-dark);
+}
+
+.hover\:bg-legal-navy:hover {
+  background-color: var(--legal-navy);
+}
+
+.hover\:bg-legal-violet:hover {
+  background-color: var(--legal-violet);
+}
+
+.hover\:bg-legal-violet-dark:hover {
+  background-color: var(--legal-violet-dark);
+}
+
+.hover\:text-legal-blue:hover {
+  color: var(--legal-blue);
+}
+
+.hover\:text-legal-violet:hover {
+  color: var(--legal-violet);
+}
+
+.hover\:text-legal-violet-dark:hover {
+  color: var(--legal-violet-dark);
+}
+
+.hover\:border-legal-blue:hover {
+  border-color: var(--legal-blue);
+}
+
+.hover\:border-legal-violet:hover {
+  border-color: var(--legal-violet);
+}
+
+.hover\:border-legal-violet-dark:hover {
+  border-color: var(--legal-violet-dark);
+}
+
+.focus\:border-legal-blue:focus {
+  border-color: var(--legal-blue);
+}
+
+.focus\:border-legal-violet:focus {
+  border-color: var(--legal-violet);
+}
+
+.focus\:border-legal-violet-dark:focus {
+  border-color: var(--legal-violet-dark);
+}
+
+.focus\:ring-legal-blue:focus {
+  --tw-ring-color: var(--legal-blue);
+}
+
+/* Success/Completion Color Utilities */
+.bg-success-50 {
+  background-color: var(--success-50);
+}
+
+.bg-success-100 {
+  background-color: var(--success-100);
+}
+
+.bg-success-200 {
+  background-color: var(--success-200);
+}
+
+.bg-success-600 {
+  background-color: var(--success-600);
+}
+
+.bg-success-700 {
+  background-color: var(--success-700);
+}
+
+.text-success-600 {
+  color: var(--success-600);
+}
+
+.text-success-700 {
+  color: var(--success-700);
+}
+
+.border-success-200 {
+  border-color: var(--success-200);
+}
+
+.hover\:bg-success-700:hover {
+  background-color: var(--success-700);
+}
+
+.hover\:text-success-600:hover {
+  color: var(--success-600);
+}
+
+.hover\:border-success-200:hover {
+  border-color: var(--success-200);
+}
+
+.focus\:border-success-600:focus {
+  border-color: var(--success-600);
+}
+
+.focus\:ring-success-600:focus {
+  --tw-ring-color: var(--success-600);
+}
+
+/* Horizontal slide animation for summary cards */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Cookiebot widget placement on small screens */
+@media screen and (max-width: 768px) {
+  #CookiebotWidget {
+      left: 10px !important;
+      bottom: 50px !important;
+      right: auto !important;
+      top: auto !important;
+  }
+}
+
+/* Cookiebot dialog: ensure nav tab links meet WCAG AA contrast (4.5:1 on white) */
+#CybotCookiebotDialogNavDeclaration.CybotCookiebotDialogNavItemLink,
+.CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
+  color: #a54a00 !important;
+}
+.CybotCookiebotDialogNavItemLink {
+  color: #8b3a00 !important;
+}
+.CybotCookiebotDialogNavItemLink:hover,
+.CybotCookiebotDialogNavItemLink:focus {
+  color: #6b2d00 !important;
+}
+#CookiebotWidget button:focus-visible {
+  outline: 2px solid var(--nova-primary-500) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--nova-primary-500) 25%, transparent) !important;
+}
+/* Conversion landing (/landingpage): hide viewport scrollbar, keep scroll */
+html.conversion-landing-hide-scrollbar,
+body.conversion-landing-hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html.conversion-landing-hide-scrollbar::-webkit-scrollbar,
+body.conversion-landing-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

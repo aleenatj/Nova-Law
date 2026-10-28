@@ -1,0 +1,17 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2>New Contact Us Form Submission</h2>
+
+<p>Hi there</p>
+
+<p>A new request has been submitted through the Contact Us form. Details are provided below for your reference.</p>
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Customer Details:</h3>
+    <strong>First Name:</strong> {{ first_name }}<br>
+    <strong>Last Name:</strong> {{ last_name }}<br>
+    <strong>Phone:</strong> {{ phone }}<br>
+    <strong>Email:</strong> {{ email }}<br>
+    <strong>Message:</strong> {{ message }}
+</div>
+{% endblock %}

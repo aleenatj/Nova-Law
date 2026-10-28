@@ -1,0 +1,14 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "customer_name": "{customer_name}",
+        "attendee_phone_number": "{attendee_phone_number}",
+        "start_time": "{start_time}",
+        "end_time": "{end_time}",
+        "kyc_id": "{kyc_id}",
+        "triage_id": "{triage_id}",
+        "action_buttons": "{action_buttons}"
+    }
+}

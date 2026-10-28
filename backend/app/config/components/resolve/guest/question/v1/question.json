@@ -1,0 +1,19 @@
+{
+  "{question_identifier}": {
+      "question_type": "{question_type}",
+      "variant": "{variant}",
+      "title": "{title}",
+      "description": "{description}",
+      "placeholder": "{placeholder}",
+      "question": "{question}",
+      "options": "{options}",
+      "required": "{required}",
+      "input_type": "{input_type}",
+      "rules": "{rules}",
+      "question_order": "{question_order}",
+      "answer_type": "{answer_type}",
+      "answer": "{answer}",
+      "question_status": "{question_status}",
+      "version": "{version}"
+  }
+}

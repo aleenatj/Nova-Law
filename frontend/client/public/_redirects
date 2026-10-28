@@ -1,0 +1,16 @@
+# Prerendered pages - serve specific HTML files
+/privacy-policy    /client/privacy-policy.html    200
+/user-agreement    /client/user-agreement.html    200
+/cookie-policy     /client/cookie-policy.html     200
+/become-a-nova-professional    /client/become-a-nova-professional.html    200
+/support-and-guidance    /client/support-and-guidance.html    200
+/payment-and-security    /client/payment-and-security.html    200
+/nova-engage    /client/nova-engage.html    200
+/60-sec-feedback    /client/60-sec-feedback.html    200
+/contact-us    /client/contact-us.html    200
+/divorce-options    /client/divorce-options.html    200
+/separation-divorce-next-steps    /client/separation-divorce-next-steps.html    200
+/feedback   /client/feedback.html    200
+
+# Fallback to 200.html for SPA routing (must be last)
+/*    /client/200.html   200

@@ -1,0 +1,139 @@
+name: Main CI/CD Pipeline (Reusable Workflows)
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  # Step 1: Determine Environment (Reusable)
+  determine-environment:
+    uses: ./.github/workflows/01-determine-environment.yml
+    with:
+      ref-name: ${{ github.ref_name }}
+
+  # Step 2: Security Scan (Reusable)
+  security-scan:
+    needs: determine-environment
+    uses: ./.github/workflows/02-security-scan.yml
+    with:
+      python-version: "3.13"
+
+  # Step 3: Run Tests (Reusable)
+  test:
+    needs: determine-environment
+    uses: ./.github/workflows/03-test.yml
+    with:
+      python-version: "3.13"
+
+  # Step 4: Dependency Audit (Reusable) - MOVED BEFORE DEPLOYMENT
+  dependency-audit:
+    needs: determine-environment
+    uses: ./.github/workflows/04-dependency-audit.yml
+    with:
+      python-version: "3.13"
+
+  # Step 5: Build Package (Reusable) - For PR validation
+  build-package:
+    needs: [determine-environment] #, security-scan, test, dependency-audit]
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/05-build-package.yml
+    with:
+      python-version: "3.13"
+      lambda-limit-mb: 250
+
+  # Step 6: Build and Deploy Package (Reusable) - Combined for efficiency
+  build-and-deploy:
+    needs: [determine-environment] #, security-scan, test, dependency-audit]
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/05-build-and-deploy.yml
+    with:
+      environment: ${{ needs.determine-environment.outputs.environment }}
+      lambda-function-name: ${{ needs.determine-environment.outputs.lambda-function-name }}
+      lambda-layer-name: ${{ needs.determine-environment.outputs.lambda-layer-name }}
+      migration-lambda-function-name: ${{ needs.determine-environment.outputs.migration-lambda-function-name }}
+      python-version: "3.13"
+      lambda-limit-mb: 250
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+
+  # Step 7: Database Migration (Reusable - only on push to main)
+  database-migrate:
+    needs: [determine-environment, build-and-deploy]
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/07-database-migrate.yml
+    with:
+      environment: ${{ needs.determine-environment.outputs.environment }}
+      migration-lambda-function-name: ${{ needs.determine-environment.outputs.migration-lambda-function-name }}
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+
+  # Step 8: Setup EventBridge Rule (Reusable - only on push to main)
+  setup-eventbridge:
+    needs: [determine-environment, build-and-deploy]
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/06-setup-eventbridge.yml
+    with:
+      environment: ${{ needs.determine-environment.outputs.environment }}
+      lambda-function-name: ${{ needs.determine-environment.outputs.lambda-function-name }}
+      schedule-expression: "rate(1 hour)"
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+
+  # Step 9: Rollback (Reusable - only if deployment or migration fails)
+  rollback:
+    needs: [determine-environment, build-and-deploy, database-migrate]
+    if: |
+      github.event_name == 'push' &&
+      (needs.build-and-deploy.result == 'failure' || needs.database-migrate.result == 'failure')
+    uses: ./.github/workflows/08-rollback.yml
+    with:
+      environment: ${{ needs.determine-environment.outputs.environment }}
+      lambda-function-name: ${{ needs.determine-environment.outputs.lambda-function-name }}
+      deployment-success: ${{ needs.build-and-deploy.outputs.deployment-success }}
+      migration-success: ${{ needs.database-migrate.outputs.migration-success }}
+
+  # Final notification job
+  pipeline-completion:
+    runs-on: ubuntu-latest
+    needs: [determine-environment, security-scan, test, dependency-audit, build-package, build-and-deploy, database-migrate, rollback]
+    if: always()
+    name: Pipeline Completion
+    steps:
+    - name: Pipeline Summary
+      run: |
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          echo "✅ CI Pipeline completed for PR #${{ github.event.number }}"
+          echo "📋 Completed steps: Environment, Security Scan, Tests, Dependency Audit, Build Package"
+          echo "🚫 Skipped steps: Deploy, Migration, Rollback (PR workflow)"
+        else
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ Full CI/CD Pipeline completed successfully"
+            echo "📋 Completed steps: Environment, Security Scan, Tests, Dependency Audit, Build & Deploy, Migration"
+            if [ "${{ needs.rollback.result }}" = "success" ]; then
+              echo "🔄 Rollback was executed due to deployment/migration failure"
+            fi
+          else
+            echo "❌ CI/CD Pipeline failed"
+            echo "🔍 Check the logs above for error details"
+            echo "📊 Job Results:"
+            echo "  - Environment: ${{ needs.determine-environment.result }}"
+            echo "  - Security Scan: ${{ needs.security-scan.result }}"
+            echo "  - Tests: ${{ needs.test.result }}"
+            echo "  - Dependency Audit: ${{ needs.dependency-audit.result }}"
+            if [ "${{ github.event_name }}" = "pull_request" ]; then
+              echo "  - Build Package: ${{ needs.build-package.result }}"
+            else
+              echo "  - Build & Deploy: ${{ needs.build-and-deploy.result }}"
+              echo "  - Migration: ${{ needs.database-migrate.result }}"
+              echo "  - Rollback: ${{ needs.rollback.result }}"
+            fi
+          fi
+        fi

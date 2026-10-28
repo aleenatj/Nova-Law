@@ -1,0 +1,14 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "first_name": "{first_name}",
+        "case_number": "{case_number}",
+        "lawyer_profiles": "{lawyer_profiles}",
+        "action_buttons": {
+            "engage_with": true,
+            "talk_to_nn": true,
+            "talk_to_lawyer": true
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "first_name": "{first_name}",
+        "title": "{title}",
+        "summary": "{summary}",
+        "recommendations": "{recommendations}",
+        "resolve_id": "{resolve_id}",
+        "kyc_id": "{kyc_id}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "action_buttons": "{action_buttons}"
+    }
+}
+

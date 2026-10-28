@@ -1,0 +1,15 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "customer_name": "{customer_name}",
+        "kyc_id": "{kyc_id}",
+        "action_buttons":{
+            "alignment_check": true,
+            "view_alignment_check_details": true,
+            "alignment_check_push": true
+        }
+    }
+}
+

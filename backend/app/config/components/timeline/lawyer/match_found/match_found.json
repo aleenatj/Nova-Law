@@ -1,0 +1,19 @@
+{
+  "1": {
+    "action_by": "{action_by}",
+    "timestamp": "{timestamp}",
+    "case_number": "{case_number}",
+    "customer_name": "{customer_name}",
+    "partner_name": "{customer_name}",
+    "case_summary": "{case_summary}",
+    "kyc_id": "{kyc_id}",
+    "resolve_id": "{resolve_id}",
+    "action_buttons": {
+      "raise_interest": true,
+      "decline_match": true,
+      "ask_more_details": true,
+      "view_resolve": true,
+      "view_kyc": true
+    }
+  }
+}

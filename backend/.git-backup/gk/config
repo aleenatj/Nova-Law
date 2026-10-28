@@ -1,0 +1,97 @@
+[branch "main"]
+	gk-last-accessed = 2026-10-28T08:24:51.129Z
+	gk-last-modified = 2026-10-28T08:24:51.129Z
+[branch "staging"]
+	gk-last-accessed = 2026-03-03T04:05:44.405Z
+	gk-last-modified = 2026-02-19T11:35:49.495Z
+[branch "card-email-updates"]
+	gk-last-accessed = 2026-02-02T11:12:10.087Z
+	gk-last-modified = 2026-02-02T11:12:10.087Z
+[branch "consultaion-change"]
+	gk-last-accessed = 2026-02-02T13:07:43.528Z
+	gk-last-modified = 2026-02-02T13:07:43.528Z
+[branch "email-cta-corrections"]
+	gk-last-accessed = 2026-02-03T09:42:25.128Z
+	gk-last-modified = 2026-02-03T09:42:25.128Z
+[branch "747_cron_not-interested_notification_after_24_hours"]
+	gk-last-accessed = 2026-02-04T11:13:45.003Z
+	gk-last-modified = 2026-02-04T11:13:45.003Z
+[branch "email-name-correction"]
+	gk-last-accessed = 2026-02-04T11:53:08.242Z
+	gk-last-modified = 2026-02-04T11:53:16.744Z
+[branch "email-subject-change"]
+	gk-last-accessed = 2026-02-05T04:07:18.948Z
+	gk-last-modified = 2026-02-04T12:59:00.547Z
+[branch "738-engage-feedback-form"]
+	gk-last-accessed = 2026-02-09T07:53:35.150Z
+	gk-last-modified = 2026-02-09T07:53:35.150Z
+[branch "generate-ai-summary-stage-conflict"]
+	gk-last-accessed = 2026-02-09T14:06:54.392Z
+	gk-last-modified = 2026-02-09T14:08:19.610Z
+[branch "generate-ai-summary-stage"]
+	gk-last-accessed = 2026-02-10T04:40:56.660Z
+	gk-last-modified = 2026-02-10T04:40:56.660Z
+[branch "form-validation"]
+	gk-last-accessed = 2026-02-11T08:31:47.012Z
+	gk-last-modified = 2026-02-11T08:31:47.012Z
+[branch "688_lawyer_legalexpert_map_card_changes"]
+	gk-last-accessed = 2026-02-16T04:49:39.010Z
+	gk-last-modified = 2026-02-13T12:32:53.525Z
+[branch "engage-feedback-validation"]
+	gk-last-accessed = 2026-02-13T09:21:45.899Z
+	gk-last-modified = 2026-02-13T09:21:45.899Z
+[branch "engage-feedback-validation-stage-conflict"]
+	gk-last-accessed = 2026-02-13T09:39:02.776Z
+	gk-last-modified = 2026-02-13T09:39:02.776Z
+[branch "email-content-changes"]
+	gk-last-accessed = 2026-02-16T11:04:51.852Z
+[branch "email-content-change-stage-conflict"]
+	gk-last-accessed = 2026-02-17T04:19:38.790Z
+	gk-last-modified = 2026-02-17T04:20:45.152Z
+[branch "email-changes"]
+	gk-last-accessed = 2026-02-17T08:35:48.130Z
+	gk-last-modified = 2026-02-17T08:35:48.130Z
+[branch "email-copy-changes"]
+	gk-last-accessed = 2026-02-17T12:22:22.755Z
+	gk-last-modified = 2026-02-17T12:22:22.755Z
+[branch "email-first-content"]
+	gk-last-accessed = 2026-02-19T04:04:39.053Z
+	gk-last-modified = 2026-02-17T13:25:10.985Z
+[branch "email-matching-lawyers"]
+	gk-last-accessed = 2026-02-19T12:18:16.317Z
+	gk-last-modified = 2026-02-19T12:18:32.291Z
+[branch "emails-value-mismatch"]
+	gk-last-accessed = 2026-02-20T09:40:11.971Z
+	gk-last-modified = 2026-02-20T06:29:59.858Z
+[branch "card-email-modifications"]
+	gk-last-accessed = 2026-02-23T06:42:38.219Z
+	gk-last-modified = 2026-02-23T06:42:38.219Z
+[branch "score-calculation"]
+	gk-last-accessed = 2026-02-25T09:10:54.815Z
+	gk-last-modified = 2026-02-25T09:10:54.815Z
+[branch "conflict-level-update"]
+	gk-last-accessed = 2026-02-26T11:10:24.353Z
+	gk-last-modified = 2026-02-26T11:10:24.353Z
+[branch "name-length-update"]
+	gk-last-accessed = 2026-02-27T13:15:00.173Z
+	gk-last-modified = 2026-02-27T13:15:00.173Z
+[branch "532-engage-updates"]
+	gk-last-accessed = 2026-03-30T04:01:14.857Z
+	gk-last-modified = 2026-03-24T04:44:13.640Z
+[branch "976-send-case-notifications-to-additoinal-experts"]
+	gk-last-accessed = 2026-03-19T13:06:06.488Z
+	gk-last-modified = 2026-03-19T13:06:06.488Z
+[branch "869-normalize-email-for-login-validation"]
+	gk-last-accessed = 2026-03-20T12:20:35.679Z
+	gk-last-modified = 2026-03-20T12:20:35.679Z
+[branch "email-saved-lowercase"]
+	gk-last-accessed = 2026-03-23T09:13:21.544Z
+	gk-last-modified = 2026-03-23T09:13:43.828Z
+[branch "email-lowercase"]
+	gk-last-accessed = 2026-03-23T09:19:10.475Z
+	gk-last-modified = 2026-03-23T09:19:21.507Z
+[branch "resolve-asset-value-question"]
+	gk-last-accessed = 2026-04-08T03:59:22.893Z
+	gk-last-modified = 2026-03-30T08:06:05.757Z
+[gk]
+	maintenanceLastRun = 2026-10-28T08:19:13.832Z

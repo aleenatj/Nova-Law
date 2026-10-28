@@ -1,0 +1,16 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Triage details updated</h2>
+<p>Hi {{ customer_name | default('there') }}</p>
+
+<p>Thank you for updating your triage details. We have saved the latest information on your Nova account.</p>
+
+<p>You can sign in at any time to view your case progress{% if case_number %} for case <b>{{ case_number }}</b>{% endif %} and explore your options at your own pace.</p>
+
+<p>If you have any questions, our team is here to help.</p>
+
+<div class="text-center">
+    <a href="{{ redirect_url }}" class="btn">Go To My Nova</a>
+</div>
+{% endblock %}

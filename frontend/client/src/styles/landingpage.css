@@ -1,0 +1,33 @@
+.landing-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.5rem;
+  border-radius: 30px;
+  background: var(--nova-black);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.landing-primary-button:hover {
+  box-shadow: 0 10px 25px rgba(7, 22, 30, 0.25);
+  background: linear-gradient(90deg,#9A00D2 0%, #F41471 100%);
+}
+
+/* Mini / conversion hero CTA: yellow default; hover matches header (gradient + white label + white arrow swap in markup). */
+.landing-primary-button.landing-primary-button--mini-hero {
+  background: var(--nova-yellow) !important;
+  color: var(--nova-black) !important;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.landing-primary-button.landing-primary-button--mini-hero:hover:not(:disabled) {
+  box-shadow: 0 10px 25px rgba(7, 22, 30, 0.25);
+  background: linear-gradient(90deg, #9a00d2 0%, #f41471 100%) !important;
+  color: #fff !important;
+}

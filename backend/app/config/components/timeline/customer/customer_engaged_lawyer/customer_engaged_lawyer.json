@@ -1,0 +1,23 @@
+{
+    "1": {
+        "action_by": "{action_by}",
+        "timestamp": "{timestamp}",
+        "case_number": "{case_number}",
+        "first_name": "{first_name}",
+        "lawyer_name": "{lawyer_name}",
+        "lawyer_profile": {
+            "lawyer_name": "{lawyer_name}",
+            "lawyer_about": "{lawyer_about}",
+            "lawyer_photo_url": "{lawyer_photo_url}",
+            "lawyer_expert_types": "{lawyer_expert_types}",
+            "lawyer_experience": "{lawyer_experience}",
+            "lawyer_expertises": "{lawyer_expertises}",
+            "lawyer_accreditations": "{lawyer_accreditations}",
+            "lawyer_rate": "{lawyer_rate}",
+            "lawyer_location": "{lawyer_location}",
+            "lawyer_testimonial": "{lawyer_testimonial}"
+        },
+        "action_buttons": {
+        }
+    }
+}

@@ -1,0 +1,94 @@
+[tool.poetry]
+name = "nova-law-backend"
+version = "1.0.0"
+description = "Multi-agent AI system backend with FastAPI, PostgreSQL, LangChain, and LangGraph."
+authors = ["Nova Law Team <team@novalaw.ai>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = ">=3.13,<3.14"
+fastapi = "^0.116.1"
+uvicorn = {extras = ["standard"], version = "^0.35.0"}
+pydantic = "^2.11.7"
+pydantic-settings = "^2.8.0"
+email-validator = "^2.2.0"
+sqlalchemy = "^2.0.42"
+psycopg2-binary = "^2.9.10"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = ">=3.1.0,<4.0.0"
+python-multipart = "^0.0.20"
+cryptography = ">=41.0.7,<42.0.0"
+langchain-core = "^0.3.72"
+langchain-openai = "^0.3.28"
+langgraph = "^0.6.3"
+openai = "^1.99.1"
+mangum = "^0.19.0"
+prometheus-client = "^0.22.1"
+structlog = "^25.4.0"
+click = "^8.2.1"
+alembic = "^1.14.1"
+
+typing-extensions = "^4.14.1"
+requests = "^2.32.4"
+types-requests = "^2.31.0"
+boto3 = "^1.40.6"
+jinja2 = "^3.1.6"
+pillow = "^11.3.0"
+stripe = "^12.5.1"
+pyyaml = "^6.0.0"
+ua-parser = "^0.18.0"
+user-agents = "^2.2.0"
+openpyxl = "^3.1.5"
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+show_error_codes = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+# Skip specific error codes
+disable_error_code = [
+    "no-untyped-def",
+    "no-any-return",
+    "misc",
+    "unused-ignore",
+    "dict-item",
+    "import-untyped"
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pytest-asyncio = "^0.24.0"
+httpx = "^0.28.1"
+black = "^24.4.2"
+ruff = "^0.8.3"
+mypy = "^1.12.0"
+pre-commit = "^4.1.0"
+bandit = "^1.8.1"
+safety = "^2.3.5"
+pytest-cov = "^4.0.0"
+
+[tool.poetry.group.socket-lambda.dependencies]
+boto3 = "^1.40.6"
+botocore = "^1.40.6"
+psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.1.1"
+jsonpatch = "^1.33"
+jsonpointer = "^3.0.0"
+six = "^1.17.0"
+typing-extensions = "^4.15.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+cryptography = ">=41.0.7,<42.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"

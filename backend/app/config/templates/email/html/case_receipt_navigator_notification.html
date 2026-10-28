@@ -1,0 +1,16 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Payment Received</h2>
+
+<p>Hi {{ navigator_name }}</p>
+<p> Payment has been received from {{customer_name}} in relation to {{lawyer_name}}.</p>
+
+<p>You can review the payment details and monitor next steps in Nova.</p>
+<div class="text-center">
+  <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+  <!-- <br>
+  <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+
+{% endblock %}

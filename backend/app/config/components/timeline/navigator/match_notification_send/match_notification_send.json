@@ -1,0 +1,11 @@
+{
+  "1": {
+    "action_by": "{action_by}",
+    "timestamp": "{timestamp}",
+    "case_number": "{case_number}",
+    "notified_lawyers": "{notified_lawyers}",
+    "message": "{message}",
+    "customer_name": "{customer_name}",
+    "action_buttons": {}
+  }
+}

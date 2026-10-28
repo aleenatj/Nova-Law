@@ -1,0 +1,14 @@
+[
+    { "id": 1, "field": "created_at", "label": "Created At" },
+    { "id": 2, "field": "name", "label": "Name" },
+    { "id": 3, "field": "phone", "label": "Phone" },
+    { "id": 4, "field": "email", "label": "Email" },
+    { "id": 5, "field": "how_can_help", "label": "How can we help you ?" },
+    { "id": 6, "field": "trouble_with_any", "label": "Are you having trouble with any of the following ?" },
+    { "id": 7, "field": "trouble_navigating_engage", "label": "Are you having trouble navigating through the Engage form ?" },
+    { "id": 8, "field": "section_stuck_on", "label": "Which page or section are you stuck on?" },
+    { "id": 9, "field": "issues_listed", "label": "Is it one of the issues listed below?" },
+    { "id": 10, "field": "new_lawfirm", "label": "What is the name of the new firm?" },
+    { "id": 11, "field": "helped_resolve_issue", "label": "Has this guidance helped resolve your issue ?" },
+    { "id": 12, "field": "support_query_message", "label": "Your support query/message" }
+]

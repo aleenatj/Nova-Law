@@ -1,0 +1,12 @@
+{
+    "1":{
+      "action_by": "{action_by}",
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "lawyer_request":"{lawyer_request}",
+      "action_buttons":{
+          "raise_interest":true,
+          "decline_match":true
+      }
+  }
+}

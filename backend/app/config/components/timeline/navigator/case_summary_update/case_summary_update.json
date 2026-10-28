@@ -1,0 +1,11 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "case_type": "{case_type}",
+        "current_case_summary": "{current_case_summary}",
+        "previous_case_summary": "{previous_case_summary}",
+        "timestamp": "{timestamp}"
+    }
+}
+

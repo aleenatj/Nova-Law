@@ -1,0 +1,11 @@
+{
+    "1":{"status": "{status}",
+        "case_number": "{case_number}",
+        "case_type": "{case_type}",
+        "next_steps": "{next_steps}",
+        "summary": "{summary}",
+        "timestamp": "{timestamp}",
+        "resolve_id": "{resolve_id}",
+        "action_buttons":"{action_buttons}"
+    }
+}

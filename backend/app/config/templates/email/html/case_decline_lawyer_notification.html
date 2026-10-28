@@ -1,0 +1,19 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+    <h2 class="align-left">Decline Noted</h2>
+    <p>Hi {{ lawyer_name }}</p>
+    {% if is_navigator_action %}
+    <p>Your decision to decline case <strong>{{ case_number }}</strong> has been recorded.</p>
+    {% else %}
+    <p>
+        We’ve noted that you’re not able to support this case.  Thanks for letting us know.
+    </p>
+    {% endif %}
+    <p>No further action is required.</p>
+    <div class="text-center">
+        <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+        <!-- <br>
+        <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+    </div>
+{% endblock %}

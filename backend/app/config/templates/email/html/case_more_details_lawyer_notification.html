@@ -1,0 +1,31 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Case More Details Request</h2>
+
+<p>Hi {{ lawyer_name }}</p>
+{% if is_navigator_action %}
+<p>
+    The Nova Navigator team has requested additional information for the case <strong>{{ case_number }}</strong> on your behalf.
+</p>
+{% else %}
+<p>You have requested additional information for the case <strong>{{ case_number }}</strong>. Nova Navigator will review your request and provide more detailed case information to help you make an informed decision.</p>
+{% endif %}
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Your Request</h3>
+    <p>{{ lawyer_request }}</p>
+</div>
+
+    <h3>Next Steps:</h3>
+    <ul>
+        <li>Nova Navigator will gather additional case details</li>
+        <li>You'll receive an updated case summary within 24 hours</li>
+        <li>You can then decide to raise interest or decline</li>
+        <li>Case remains available for other experts in the meantime</li>
+    </ul>
+    <div class="text-center">
+        <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+        <!-- <br>
+        <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+      </div>
+{% endblock %}

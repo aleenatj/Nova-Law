@@ -1,0 +1,12 @@
+{
+    "1":{
+      "timestamp": "{timestamp}",
+      "case_number": "{case_number}",
+      "lawyer_names": "{lawyer_names}",
+      "expert_names": "{expert_names}",
+      "has_have": "{has_have}",
+      "customer_name": "{customer_name}",
+      "deadline_hours": "{deadline_hours}",
+      "action_buttons":{}
+  }
+}

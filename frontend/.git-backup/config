@@ -1,0 +1,212 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:Nova-Law-Limited/nova-platform-frontend.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "staging"]
+	remote = origin
+	merge = refs/heads/staging
+	vscode-merge-base = origin/staging
+[branch "354-seo-optimization"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/354-seo-optimization
+[pull]
+	rebase = false
+[branch "604-text-changes"]
+	remote = origin
+	merge = refs/heads/604-text-changes
+	vscode-merge-base = origin/604-text-changes
+[branch "680-engage-feedback-form"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/680-engage-feedback-form
+[branch "680-staging-conflict-resolve"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/680-staging-conflict-resolve
+[branch "680-validation-check"]
+	vscode-merge-base = origin/main
+[branch "generate-ai-summary"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/generate-ai-summary
+[branch "generate-ai-summary_stage_conf"]
+	remote = origin
+	merge = refs/heads/generate-ai-summary_stage_conf
+	vscode-merge-base = origin/generate-ai-summary_stage_conf
+[branch "672-call-request-button-not-hidden"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/672-call-request-button-not-hidden
+[branch "672-call-request-button-stage-conflict"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/672-call-request-button-stage-conflict
+[branch "660-kyc-form-scroll-position-not-reset"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/660-kyc-form-scroll-position-not-reset
+[branch "671-scroll-bar-overlaps-content-in-recommendation-factor-cards-on-results-page"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/671-scroll-bar-overlaps-content-in-recommendation-factor-cards-on-results-page
+[branch "671-scrollbar-overlaps-stage-conflict"]
+	vscode-merge-base = origin/staging
+[branch "668-validation-issues-in-lawyer-law-firm-and-navigator-forms"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/668-validation-issues-in-lawyer-law-firm-and-navigator-forms
+[branch "771-lawyer-cards-correct-data-displayed"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/771-lawyer-cards-correct-data-displayed
+[branch "771-card-lawyer-changes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/771-card-lawyer-changes
+[branch "771-lawyer-data-stage-conflict"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/771-lawyer-data-stage-conflict
+[branch "lawyer-validation"]
+	vscode-merge-base = origin/staging
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/lawyer-validation
+[branch "be_688_fe_bug_fixes"]
+	remote = origin
+	merge = refs/heads/be_688_fe_bug_fixes
+	vscode-merge-base = origin/be_688_fe_bug_fixes
+[branch "rediection-change"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/rediection-change
+[branch "scroll-issue-resolve"]
+	vscode-merge-base = origin/main
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/scroll-issue-resolve
+[branch "form-bug-fixes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/form-bug-fixes
+[branch "lawyer-validation-issues"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/lawyer-validation-issues
+[branch "bug-fix"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/bug-fix
+[branch "validation-enchancement"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/validation-enchancement
+[branch "validation-enchancement2"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/validation-enchancement2
+[branch "674-ui-alignment-issues"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/674-ui-alignment-issues
+[branch "658-ui-breakage-for-customer-name"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/658-ui-breakage-for-customer-name
+[branch "button-disable"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/button-disable
+[branch "917-read-more-functionality"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/917-read-more-functionality
+[branch "932-faq-copy-updates-10-03-2026"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/932-faq-copy-updates-10-03-2026
+[branch "932-stage-conflict-resolve"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/932-stage-conflict-resolve
+[branch "916-tabbing-through-the-site"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/916-tabbing-through-the-site
+[branch "faq-content-copy-change"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/faq-content-copy-change
+[branch "copy-changes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/copy-changes
+[branch "916-update-tabbing-through-site"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/916-update-tabbing-through-site
+[branch "338-landing-page-implementation"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/338-landing-page-implementation
+[branch "898-page-redirects-to-landing-page-briefly-on-refresh"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/898-page-redirects-to-landing-page-briefly-on-refresh
+[branch "902--showing-hover-effect"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/902--showing-hover-effect
+[branch "975-build-engage-on-new-platform"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/975-build-engage-on-new-platform
+[branch "landing-page-copy-changes"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/landing-page-copy-changes
+[branch "landing-page-stage-conflict-resolve"]
+	vscode-merge-base = origin/landing-page-copy-changes
+	remote = origin
+	merge = refs/heads/landing-page-stage-conflict-resolve
+[branch "copy-chage-stage-conflict"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/copy-chage-stage-conflict
+[branch "976-review-profiles-modal-modifications"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/976-review-profiles-modal-modifications
+[branch "976-review-profiles-modal-modification"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/976-review-profiles-modal-modification
+[branch "resolve-last-identifier"]
+	remote = origin
+	merge = refs/heads/resolve-last-identifier
+	vscode-merge-base = origin/resolve-last-identifier
+[branch "new-conversion-landing-page"]
+	remote = origin
+	merge = refs/heads/new-conversion-landing-page
+	vscode-merge-base = origin/new-conversion-landing-page
+[branch "stage-conflict-new-conversion-landing-page"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/stage-conflict-new-conversion-landing-page
+[branch "916-tabbing-main"]
+	vscode-merge-base = origin/916-update-tabbing-through-site
+	remote = origin
+	merge = refs/heads/916-tabbing-main
+[branch "916-tabbing-staging"]
+	vscode-merge-base = origin/staging
+	remote = origin
+	merge = refs/heads/916-tabbing-staging

@@ -1,0 +1,40 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Client Onboarding Completed</h2>
+
+<p>Hi {{ lawyer_name  }}</p>
+<p>The client onboarding assessment for <b>{{ customer_name }}</b>
+    {% if is_customer %}
+    has been completed.
+    {% else %}
+    has been marked as completed by {{ action_by_role }} <strong>{{ action_by_name | default('') }}</strong>.
+    {% endif %}
+<p>The client has provided all necessary information and is ready to proceed with the case.</p>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+    <h3 class="section-heading">Case Details</h3>
+    <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Client</span>
+        <span>{{ customer_name }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Case Type:</span>
+        <span>{{ case_type }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Case Number:</span>
+        <span>{{ case_number }}</span>
+      </div>
+      <div style="margin-bottom: 8px;">
+        <span style="display: inline-block; width: 150px; font-weight: bold;">Status:</span>
+        <span>{{ status }}</span>
+      </div>
+</div>
+
+<div class="text-center">
+  <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+  <!-- <br>
+  <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+{% endblock %}

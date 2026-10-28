@@ -1,0 +1,11 @@
+{
+    "1":{
+        "action_by": "{action_by}",
+        "case_number": "{case_number}",
+        "timestamp": "{timestamp}",
+        "resolve_id": "{resolve_id}",
+        "action_buttons":{
+            "view_resolve": true
+        }
+    }
+}

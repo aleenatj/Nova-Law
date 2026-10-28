@@ -1,0 +1,14 @@
+<div class="footer">
+    <div class="text-center">
+        <!-- <p style="margin: 0px;">
+            Best regards,<br>
+            The {{ team_name | default('Nova Law AI') }} Team
+        </p> -->
+        <p style="margin-bottom: 0; margin-top: 4px; color: #333539CC !important;">{{ legal_footer | default('This email is sent by Nova. For support, contact hello@novalaw.co.uk') }}</p>
+        {% if unsubscribe_url %}
+        <p style="margin-bottom: 0px;">
+            <a href="{{ unsubscribe_url }}" style="color: #333539CC !important; text-decoration: underline;">Unsubscribe</a>
+        </p>
+        {% endif %}
+    </div>
+</div>

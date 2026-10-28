@@ -1,0 +1,13 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Nova Expert Not Interested</h2>
+
+<p>Hi {{ navigator_name | default('Navigator') }}</p>
+<p>{{ expert_name }} has not expressed an interest to support {{ customer_name }} within the required {{ lawyer_interest_deadline_hours }} hours time period.</p>
+<p>You can review the details provided and continue matching with other suitable Nova Experts as needed.</p>
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View details in Nova</a>
+</div>
+
+{% endblock %}

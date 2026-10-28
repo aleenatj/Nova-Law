@@ -1,0 +1,59 @@
+Always generate Python code for this project that:
+
+    Passes ALL pre-commit hooks and CI requirements:
+
+        Includes: trailing-whitespace, end-of-file-fixer, check-yaml, check-json, check-toml, check-added-large-files, check-merge-conflict, check-case-conflict, check-docstring-first, debug-statements, requirements-txt-fixer, ruff, ruff-format, black, mypy, bandit.
+
+    Strictly follows these standards:
+
+        Python 3.13+ only.
+
+        Code is part of a FastAPI backend project; use corresponding best practices for scalability, testability, maintainability, and clarity.
+
+        Use type annotations everywhere (all functions, all variables as appropriate).
+
+        Prefer modern Python idioms (e.g., match statement, Self type hint, | union operator instead of Union).
+
+        Use only libraries present in tool.poetry.dependencies or tool.poetry.group.dev.dependencies in pyproject.toml.
+
+        Format with black (line-length: 88, spaces for indent), always.
+
+        Adhere to ruff and mypy: never write code that would fail lint or type checks, including all configuration options and ignores as set in pyproject.toml.
+
+        Use double quotes for all strings; triple double quotes for all docstrings.
+
+        Add Google-style docstrings to all public functions/classes.
+
+        Never use wildcard imports, unused variables, ambiguous types, or other flagged patterns.
+
+        No commented-out code, temporary debug, or uncommitted fixups; all code must be immediately committable.
+
+        Use only explicit/safe error handling (no bare except).
+
+        Follow security guidelines from bandit: do not introduce unsafe patterns, secrets, or insecure subprocess/crypto usage.
+
+        Respect current architecture: Never restructure or reorganize the project, never add new folders/modules/files unless explicitly requested. Only create or edit documents/files if specifically asked by the user.
+
+        Never create chat summaries or ancillary files (e.g., summary.md, overview.txt, etc.) unless directly instructed.
+
+        Conform to [isort] import order per config (known-first-party, known-third-party).
+
+        Default to readability and correctness over brevity or “cleverness”.
+
+    Testing and documentation:
+
+        Write unit tests with pytest for business logic code if requested.
+
+        Never include or assume missing dependencies—only use those already defined.
+
+    Industry standard best practices:
+
+        Use best practices for Python, FastAPI, SQLAlchemy, and backend architecture.
+
+        Prefer explicitness, modularity, context managers, pathlib over os.path, safe type narrowing, response/request validation, and Pydantic for schemas.
+
+        Handle errors with specific exception types, no bare exceptions.
+
+        Use logging instead of print.
+
+        Ensure all public interfaces (API endpoints, services, utilities) are correctly documented and typed.

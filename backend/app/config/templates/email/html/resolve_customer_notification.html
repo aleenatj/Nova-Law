@@ -1,0 +1,33 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Personalised Recommendation</h2>
+<p>Hi {{ customer_name | default('there') }}</p>
+<p>Thank you for using Nova.</p>
+<p>Based on what you’ve shared with us, your personalised recommendation is: <b>{{ result_of_resolve.title }}</b>.</p>
+<p>You can view your personalised recommendation and explore this pathway in more detail in your Nova dashboard.</p>
+<div>
+    <p>{{ result_of_resolve.email_summary | safe }}</p>
+</div>
+
+<div>
+    <p>
+    Your next step is a <strong>free meeting with a member of our Nova Navigator team to talk through your recommendation</strong>.
+    </p>
+</div>
+
+<div class="text-center">
+    <a href="{{ redirect_url }}" class="btn">Book my free meeting</a>
+    <!-- <a href="{{ redirect_url }}" class="btn">Go To My Nova</a> -->
+    <!-- <br>
+    <a href="{{ redirect_url }}" class="link">{{redirect_url}}</a> -->
+</div>
+<div>
+    <p>During the meeting, we’ll help you understand your recommendation and decide on your next step. If you need professional support, we can connect you with the right family law professional.</p>
+</div>
+
+<div style="text-align: center; font-style: italic;">
+    <p>Nova uses specialised AI to help you understand possible dispute resolution pathways. It does not provide legal advice. If you need legal advice, we can connect you with a qualified family law professional.</p>
+</div>
+
+{% endblock %}

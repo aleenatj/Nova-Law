@@ -1,0 +1,14 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Selected by Client</h2>
+<p>Hi {{ lawyer_name }}</p>
+<p>We are pleased to inform you that  {{customer_name}} has selected you to support their case.</p>
+<p>You can review the case details and see the next steps in Nova.</p>
+    <div class="text-center">
+        <a href="{{ case_url | default('#') }}" class="btn">View case details</a>
+        <!-- <br>
+        <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+    </div>
+
+{% endblock %}

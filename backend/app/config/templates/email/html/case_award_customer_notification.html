@@ -1,0 +1,100 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">Your Nova Expert is Ready When You Are</h2>
+<div class="align-left" style="margin-bottom: 20px;"></div>
+<p>Hi {{ customer_name }}</p>
+<p>You’ve chosen {{ lawyer_name }} as your Nova Expert.</p>
+{#<p>
+    Your next step is a Strategic Advice Consultation – a focused, one-hour session designed to give you clear, personalised options and a recommended next step, without pressure or obligation to take things further.
+</p>
+<p>
+    Before the consultation, you’ll be invited to complete Nova Engage – our in-depth, AI-guided experience that helps ensure your consultation time is spent on what matters most to you, not simply gathering background information.
+</p>
+<p>
+    After your consultation, you’ll also receive a Recommendations & Next Steps Letter of Advice from {{ lawyer_name }} within 48 hours, giving you something clear and practical to return to, reflect on, or share if needed.
+</p>
+<p>
+    There’s no rush to book. When you feel ready, you can secure your consultation with a £50 deposit. This deposit will processed by Nova then held in the client account of Family Law Partners. The total fixed fee is £299 (including VAT), with the remaining balance of £249 to be paid by you to Family Law Partners after the consultation has taken place.    
+</p>
+<p>
+    Once your consultation is secured, we’ll be in touch to confirm available dates and times with {{ lawyer_name }}.
+</p>#}
+<p>Your next step is to prepare for your consultation with {{ lawyer_name }} by completing Nova Engage, our online briefing process.</p>
+<p>Nova Engage helps you organise the key information about your situation in advance, so your consultation can focus on what matters most to you rather than gathering background information. This means {{ lawyer_first_name }} will already be briefed before you meet, saving you time, money and stress.</p>
+<p>Nova Engage is included at no cost to you and usually takes around 45 to 60 minutes. You can save your progress and return whenever you need.</p>
+<p>There’s no rush and no obligation. If you choose to book a consultation, you’ll be quoted the fee in advance, so you can decide whether to proceed.</p>
+<div class="info-box" style="margin-top: 30px;">
+    <h3 class="section-heading">Your Chosen Nova Expert Profile</h3>
+    <div style="display: flex; align-items: flex-start; margin: 20px 0;">
+        <div style="text-align: center; margin-bottom: 10px;">
+            {% if lawyer_photo_url %}
+                <img src="{{ lawyer_photo_url }}" alt="{{ lawyer_name }}" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid #007bff; display: block;">
+            {% else %}
+                {% set first_letter = (lawyer_name | default('U'))[0] | upper %}
+                <div class="profile-placeholder profile-placeholder-medium profile-placeholder-bordered">
+                    {{ first_letter }}
+                </div>
+            {% endif %}
+        </div>
+        <div style="margin-left: 24px;">
+            <h4 style="margin: 0 0 4px 0; color: #222;">{{ lawyer_name }}</h4>
+            <div style="display: flex; gap: 18px; color: #444; margin-bottom: 6px;">
+            <span>
+                {% if lawyer_experience and lawyer_experience != 'Not specified' %}
+                    {{ lawyer_experience }}
+                {% else %}
+                    Experience not specified
+                {% endif %}
+            </span>
+            </div>
+            <div style="color: #555; margin-bottom: 6px;">
+                {% if lawyer_about %}
+                    {{ lawyer_about }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <div style="margin-bottom: 6px;">
+            <strong>Expert Types:</strong>
+            {% if lawyer_expert_types %}
+                {{ lawyer_expert_types|join(', ') }}
+            {% endif %}
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Location:</strong>
+            {% if lawyer_location %}
+                {{ lawyer_location | default('Not specified') }}
+            {% else %}
+                Not specified
+            {% endif %}
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Expertise:</strong>
+            {% if lawyer_expertises %}
+                {{ lawyer_expertises|join(', ') }}
+            {% else %}
+                Not specified
+            {% endif %}
+        </div>
+        <!-- <div style="margin-bottom: 6px;">
+            <strong>Rate:</strong>
+            {% if lawyer_rate %}
+                ${{ lawyer_rate }}/hr
+            {% endif %}
+        </div> -->
+        {% if action_by %}
+        <div style="margin-bottom: 6px;">
+            <strong>Action By:</strong>
+                {{ action_by }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">Go to My Nova Dashboard</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+{% endblock %}

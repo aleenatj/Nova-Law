@@ -1,0 +1,160 @@
+name: Setup EventBridge Rule for Scheduled Lambda
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        default: "staging"
+      lambda-function-name:
+        required: true
+        type: string
+      schedule-expression:
+        required: false
+        type: string
+        default: "rate(1 hour)"
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+
+jobs:
+  setup-eventbridge:
+    runs-on: ubuntu-latest
+    name: Setup EventBridge Rule
+    environment: ${{ inputs.environment }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Get Lambda function ARN
+      id: get-lambda-arn
+      run: |
+        LAMBDA_ARN=$(aws lambda get-function \
+          --function-name ${{ inputs.lambda-function-name }} \
+          --query 'Configuration.FunctionArn' \
+          --output text \
+          --no-cli-pager)
+        echo "lambda-arn=${LAMBDA_ARN}" >> $GITHUB_OUTPUT
+        echo "✅ Lambda ARN: ${LAMBDA_ARN}"
+
+    - name: Create or update EventBridge rule
+      id: create-rule
+      run: |
+        RULE_NAME="check-non-responders"
+        SCHEDULE="${{ inputs.schedule-expression }}"
+        
+        echo "📅 Creating/updating EventBridge rule: ${RULE_NAME}"
+        
+        # Create or update the rule (idempotent)
+        RULE_ARN=$(aws events put-rule \
+          --name "${RULE_NAME}" \
+          --schedule-expression "${SCHEDULE}" \
+          --state ENABLED \
+          --description "Scheduled job to check for users who have not responded within 24 hours" \
+          --query 'RuleArn' \
+          --output text \
+          --no-cli-pager)
+        
+        echo "rule-arn=${RULE_ARN}" >> $GITHUB_OUTPUT
+        echo "rule-name=${RULE_NAME}" >> $GITHUB_OUTPUT
+        echo "✅ EventBridge rule created/updated: ${RULE_ARN}"
+
+    - name: Add Lambda as target to EventBridge rule
+      run: |
+        RULE_NAME="${{ steps.create-rule.outputs.rule-name }}"
+        LAMBDA_ARN="${{ steps.get-lambda-arn.outputs.lambda-arn }}"
+        
+        echo "🎯 Adding Lambda as target to EventBridge rule"
+        
+        # Remove existing targets first (idempotent - safe to run multiple times)
+        aws events remove-targets \
+          --rule "${RULE_NAME}" \
+          --ids "1" \
+          --no-cli-pager 2>/dev/null || true
+        
+        aws events put-targets \
+          --rule "${RULE_NAME}" \
+          --targets "[
+            {
+              \"Id\": \"1\",
+              \"Arn\": \"${LAMBDA_ARN}\",
+              \"Input\": \"{\\\"job\\\": \\\"${RULE_NAME}\\\"}\"
+            }
+          ]" \
+          --no-cli-pager
+        
+        echo "✅ Lambda target added to EventBridge rule"
+
+    - name: Add Lambda invoke permission for EventBridge
+      run: |
+        RULE_NAME="${{ steps.create-rule.outputs.rule-name }}"
+        RULE_ARN="${{ steps.create-rule.outputs.rule-arn }}"
+        LAMBDA_ARN="${{ steps.get-lambda-arn.outputs.lambda-arn }}"
+        LAMBDA_NAME="${{ inputs.lambda-function-name }}"
+        
+        echo "🔐 Adding Lambda invoke permission for EventBridge"
+        
+        # Check if permission already exists (idempotent)
+        STATEMENT_ID="eventbridge-invoke-${RULE_NAME}"
+        
+        # Try to add permission (will fail if already exists, which is fine)
+        aws lambda add-permission \
+          --function-name "${LAMBDA_NAME}" \
+          --statement-id "${STATEMENT_ID}" \
+          --action "lambda:InvokeFunction" \
+          --principal "events.amazonaws.com" \
+          --source-arn "${RULE_ARN}" \
+          --no-cli-pager >/dev/null 2>&1 || {
+            echo "ℹ️ Permission already exists (this is expected on re-runs)"
+          }
+        
+        echo "✅ Lambda invoke permission configured"
+
+    - name: Verify EventBridge setup
+      run: |
+        RULE_NAME="${{ steps.create-rule.outputs.rule-name }}"
+        
+        echo "✅ Verifying EventBridge setup..."
+        
+        # Check rule exists and is enabled
+        RULE_STATE=$(aws events describe-rule \
+          --name "${RULE_NAME}" \
+          --query 'State' \
+          --output text \
+          --no-cli-pager)
+        
+        if [ "${RULE_STATE}" != "ENABLED" ]; then
+          echo "❌ Rule is not enabled"
+          exit 1
+        fi
+        
+        # Check targets exist
+        TARGET_COUNT=$(aws events list-targets-by-rule \
+          --rule "${RULE_NAME}" \
+          --query 'length(Targets)' \
+          --output text \
+          --no-cli-pager)
+        
+        if [ "${TARGET_COUNT}" -eq "0" ]; then
+          echo "❌ No targets found for rule"
+          exit 1
+        fi
+        
+        echo "✅ EventBridge setup verified successfully"
+        echo "   Rule: ${RULE_NAME}"
+        echo "   State: ${RULE_STATE}"
+        echo "   Targets: ${TARGET_COUNT}"
+

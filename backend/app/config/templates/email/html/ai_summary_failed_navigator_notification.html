@@ -1,0 +1,15 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2>AI Summary Generation Failed</h2>
+
+<p>Hi {{ navigator_name | default('there') }}</p>
+
+<p> The AI summary generation for case <b>{{ case_number }}</b> has been failed. Please try again after some time. If the issue persists, please contact support. </p>
+
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+</div>
+{% endblock %}
+
+

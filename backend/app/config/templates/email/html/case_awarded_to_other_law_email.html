@@ -1,0 +1,21 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+<h2 class="align-left">{% if had_expressed_interest %} Update on the Case You Were Notified About {% else %} Update on Your Case Application {% endif %}</h2>
+<p>Hello {{ lawyer_name | default('Expert') }}</p>
+{% if had_expressed_interest %}
+<p>Thank you for registering interest in case <strong>{{ case_number }}</strong></p>
+<p>The client has selected a different Nova Expert for this matter.</p>
+<p>Nova releases new matters on an ongoing basis. You’ll be notified when opportunities aligned with your profile become available.</p>
+{% else %}
+<p>Case <strong>{{ case_number }}</strong> has been awarded to another Nova Expert.</p>
+<p>As you did not register interest, no action is required.</p>
+<p>Nova releases new matters on an ongoing basis. You’ll be notified when relevant opportunities become available.</p>
+{% endif %}
+<div class="text-center">
+    <a href="{{ case_url | default('#') }}" class="btn">View Case Details</a>
+    <!-- <br>
+    <a href="{{ case_url | default('#') }}" class="link">{{case_url}}</a> -->
+</div>
+{% endblock %}
+

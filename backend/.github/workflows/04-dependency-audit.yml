@@ -1,0 +1,60 @@
+name: Dependency Audit (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: "3.13"
+    outputs:
+      audit-success:
+        description: "Result of dependency audit"
+        value: ${{ jobs.dependency-audit.outputs.success }}
+
+jobs:
+  dependency-audit:
+    runs-on: ubuntu-latest
+    name: Dependency Audit
+    outputs:
+      success: ${{ steps.audit-status.outputs.success }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Configure Poetry
+      run: |
+        poetry config virtualenvs.create true
+        poetry config virtualenvs.in-project false
+
+    - name: Install dependencies
+      run: |
+        poetry install --with dev
+
+    - name: Run dependency audit
+      run: |
+        poetry run safety check --json > safety-report.json || echo "Safety check completed with warnings"
+
+    - name: Set audit status
+      id: audit-status
+      run: |
+        echo "success=true" >> $GITHUB_OUTPUT
+        echo "✅ Dependency audit completed"
+
+    - name: Upload safety report
+      uses: actions/upload-artifact@v4
+      with:
+        name: safety-report
+        path: safety-report.json
+        retention-days: 10

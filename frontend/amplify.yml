@@ -1,0 +1,63 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build:ssg
+  artifacts:
+    baseDirectory: dist/public
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+  customHeaders:
+    - pattern: '**/*'
+      headers:
+        - key: 'X-Content-Type-Options'
+          value: 'nosniff'
+  redirects:
+    # 301 redirect www to non-www (SEO canonical domain)
+    - source: 'https://www.novalaw.co.uk/<*>'
+      target: 'https://novalaw.co.uk/<*>'
+      status: '301'
+    - source: '/privacy-policy'
+      target: '/privacy-policy.html'
+      status: '200'
+    - source: '/user-agreement'
+      target: '/user-agreement.html'
+      status: '200'
+    - source: '/cookie-policy'
+      target: '/cookie-policy.html'
+      status: '200'
+    - source: '/become-a-nova-professional'
+      target: '/become-a-nova-professional.html'
+      status: '200'
+    - source: '/support-and-guidance'
+      target: '/support-and-guidance.html'
+      status: '200'
+    - source: '/payment-and-security'
+      target: '/payment-and-security.html'
+      status: '200'
+    - source: '/nova-engage'
+      target: '/nova-engage.html'
+      status: '200'
+    - source: '/60-sec-feedback'
+      target: '/60-sec-feedback.html'
+      status: '200'
+    - source: '/divorce-options'
+      target: '/divorce-options.html'
+      status: '200'
+    - source: '/separation-divorce-next-steps'
+      target: '/separation-divorce-next-steps.html'
+      status: '200'
+    - source: '/resolve-dashboard'
+      target: '/200.html'
+      status: '200'
+    # Fallback to 200.html for SPA routing (must be last)
+    - source: '/<*>'
+      target: '/200.html'
+      status: '200'
